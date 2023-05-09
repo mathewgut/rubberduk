@@ -51,6 +51,7 @@ import numpy
 from torch import nn
 from torch.optim import AdamW
 import re
+from clause_audit import audit_concerning_clauses
 # this was to limit cuda ram usage, but I am having a lot of issues getting it to set max vram, so its disabled for now
 #import os
 
@@ -778,7 +779,6 @@ print("F1 Score:", f1_score)
 
 
 results = audit_concerning_clauses(concerning_clauses)
-model.save_pretrained("audit_model_xlnet")
 # Print the audit results
 for clause, predicted_label in results:
     if predicted_label == 1:
