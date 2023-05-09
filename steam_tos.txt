@@ -1,0 +1,632 @@
+Terms of Service
+
+Last Updated: December 1, 2021
+
+Rec Room Inc., a Delaware corporation ("Rec Room Inc," "we," or "us"), is proud to offer Rec Room® ("Rec Room" or the "Game"). Please read these Terms of Service (the "Terms") carefully because they govern your use of the Game and related direct and indirect services including, but not limited to, informal product support and certain interactions with our websites, http://www.recroom.com, and http://www.rec.net and the subdomains of each of the foregoing (collectively, the "Website" and, with the Game, the "Services").
+
+Agreement to Terms
+
+By using the Game and/or Services, you agree to be bound by these Terms and the Privacy Policy (available at https://www.recroom.com/privacy-policy) (the "Privacy Policy") that is incorporated by reference into these Terms. If you don't agree to be bound by these Terms, do not use the Game or Services. If you are accessing or using the Game or Services on behalf of a company (such as your employer) or other legal entity, you represent and warrant that you have the authority to bind that company or other legal entity to these Terms. In that case, "you" and "your" will refer to that company or other legal entity. Otherwise, "you" and "your" will refer to you, individually.
+
+Grant of License
+
+Subject to these Terms, Rec Room Inc grants you a nonexclusive, non-transferable, non-sublicensable, limited right and license to use one copy of the Game for your personal non-commercial use for gameplay. The term of your license begins on the date that you install or otherwise use the Game and ends on the earlier date of either your disposal of the Game or Rec Room Inc's termination of this Agreement. Your license terminates immediately if you attempt to circumvent any technical protection measures used in connection with the Game or if you violate these Terms. The Game is being licensed to you and you hereby acknowledge that no title or ownership in the Game is being transferred or assigned and these Terms should not be construed as a sale of any rights in the Game. All rights not specifically granted under these Terms are reserved by Rec Room Inc.
+
+Changes to Terms, Game, and Services
+
+Rec Room Inc may modify the Terms at any time, in our sole discretion. If we do so, we will let you know either by posting the modified Terms wherever the Game may be downloaded or through other communications. Please make sure you review the modified Terms because if you continue to use the Game and/or Services after we have posted modified Terms, you are indicating to us that you agree to be bound by the modified Terms. If you don't agree to be bound by the modified Terms, then you may not use the Game or Services anymore. Because the Game and Services are evolving over time, we may change or discontinue all or any part of the Game and/or Services, at any time and without notice, at our sole discretion.
+
+Registration
+
+Users of the Game and the Services can initiate registration by interacting with interactive elements in the Game and providing us with certain personally-identifying information using the Website. You agree and understand that, by agreeing to these Terms and registering, we may use the personally-identifying information that you have provided us in accordance with the Privacy Policy. You further agree and acknowledge that our use of your personally-identifying information that you provide us when you register is governed by the Privacy Policy and that we may communicate with you using, and otherwise use, your personally-identifying information in accordance with the Privacy Policy.
+
+Personal and Non-Commercial Use Limitation
+
+Except as otherwise specified below, Rec Room Inc is providing the Game and/or Services to you for your personal and non-commercial use. You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products, and/or services obtained from the Game and/or Services.
+
+Subscription Service
+
+Users of the Game and the Services can opt-in to a paid subscription program:
+The name of the Rec Room subscription program is "Rec Room Plus" (also styled "Rec Room+")
+The subscription is monthly, and includes the following: A monthly allowance of in-game currency ("Tokens"), the ability to purchase limited in-game items, and a discount in all Token-denominated in-game stores.
+The subscription costs USD $7.99/month.
+
+On Apple® devices running the iOS or iPadOS™ operating systems:
+Payment will be charged to iTunes® Account at confirmation of purchase.
+Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period.
+Account will be charged for renewal within 24 hours prior to the end of the current period, and identify the cost of the renewal.
+Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase.
+
+Rec Tokens, Rec Token Transactions, the Creator Payment Program, and the Video Partner Program
+
+Eligible users of Rec Room may acquire, under a limited and revocable license, our virtual in-game currency ("Rec Tokens"), solely for use in connection with activities within Rec Room. In addition, eligible creators of User Content may, through the Creator Payment Program, apply to cash out earned Rec Tokens for U.S. dollars.
+
+REC TOKENS
+
+Subject to eligibility and Rec Token license terms, you may acquire Rec Tokens: (i) by purchasing Rec Tokens directly from us; (ii) by subscribing to Rec Room Plus; (iii) through contests, promotions, or other means of distribution determined by us from time-to-time in our sole discretion; or (iv) through creating User Content which you then make available within Rec Room to other users in exchange for Rec Tokens those users have purchased or earned. Your license to use Rec Tokens will terminate upon termination of these Terms or your license to access Rec Room, or as otherwise provided in the Terms. Users shall be subject to daily purchase limits, as may be implemented or changed by Rec Room Inc. in its sole discretion, and in any event are prohibited from purchasing more than $10,000 in Rec Tokens in any one calendar day. All payments for Rec Tokens are final and not refundable or exchangeable, except as required by applicable law.
+
+Other than in circumstances meeting all requirements of the Creator Payment Program, Rec Tokens do not have an equivalent value in, nor act as a substitute for, any other currency, whether real or virtual. Nor do Rec Tokens earn interest. Transactions involving the exchange of Rec Tokens for virtual items or virtual services, including User Content, in Rec Room are not legally enforceable, may not form the basis of any private right of action against Rec Room Inc. or any user or any other third party, and are governed solely by Rec Room Inc. in its discretion. You acknowledge and agree that Rec Room Inc. may engage in actions that may impact the perceived value or acquired price of Rec Tokens at any time, and for any reason, except as prohibited by applicable law.
+
+Our license to permit you to acquire Rec Tokens, if granted, is non-exclusive, revocable, personal, limited, non-transferable (except as specifically set out in these Terms), and permits you to use Rec Tokens solely for your individual, personal, entertainment use exclusively within Rec Room. You may not transfer, assign, sell, gift, exchange, trade, convert, lease, sublicense, rent, or distribute Rec Tokens except in accordance with these Terms and, as applicable, the Creator Payment Program, or as otherwise expressly permitted by us. Any disposition or attempted disposition of Rec Tokens in violation of these Terms will be void and may result in revocation of your license to use Rec Tokens and/or termination of your access to Rec Room. We do not recognize, condone or support any third-party services that may be used to sell, exchange, transfer, or otherwise dispose of Rec Tokens, other than the third party we have authorized to facilitate exchange payments through the Creator Payment Program. Rec Room Inc., in its sole discretion, may impose additional or other limits on Rec Tokens and the Creator Payment Program, including, but not limited to, the amount that may be acquired, earned, transferred, redeemed or otherwise disposed of at any given time.
+
+REC TOKEN TRANSACTIONS
+
+When licensed to utilize Rec Tokens, you will be able to use them as payment within Rec Room to access (i) certain Content provided by us, as well as (ii) User Content created and offered by other users in user-to-user transactions. All transactions in Rec Tokens will be governed by these Terms. User-to-user Rec Token transactions may also be governed by terms negotiated between you and another user, provided such additional terms do not violate these Terms, the Code of Conduct, the Creator Payment Program Rules, and Rec Room policy, or additional policies we may impose in our sole discretion at any time. Rec Token transactions may be accounted for or facilitated by us or our designated third party service providers. Once completed, Rec Token transactions are final and non-refundable, except as may be required by applicable law, or otherwise determined by us in our sole discretion. Rec Room Inc. reserves the right to reject any Rec Token transaction for User Content, on behalf of itself or any user, and reserves the right to suspend or terminate any user account in the event of unauthorized or fraudulent charges or activity, whether suspected or actual.
+
+As the recipient of Rec Tokens which you earn through user-to-user Rec Token transactions for access to your original User Content, you may, if and while eligible for the Creator Payment Program and subject to the Creator Payment Program Rules, be able to cash out certain amounts of such earned Rec Tokens for U.S. Dollars.
+
+Content creators offering and distributing User Content are solely responsible for all matters arising from their User Content and related user-to-user Rec Token transactions, including promptly resolving in good faith any complaints or other matters arising from such User Content and such transactions. While Rec Room may charge service, transaction or other fees for our role in facilitating such user-to-user transactions within Rec Room, such transactions are strictly between the participating users.
+
+Although we are not responsible for resolving disputes among users about user-to-user Rec Token transactions, we reserve the right, in our sole discretion, to intervene to attempt to mitigate or resolve such disputes. To the extent we choose to become involved in a dispute, you understand and agree that our decision, which may include reallocating, refunding, or crediting Rec Tokens from one user to another in our sole discretion, is final. In the event you are involved in any such dispute, you agree to work with us in a good faith and prompt manner to resolve the dispute.
+
+CREATOR PAYMENT PROGRAM
+
+Rec Room Inc., in its sole discretion, may allow eligible creators of User Content to participate in the Creator Payment Program. Creators of User Content participating in this program may, subject to compliance with all program terms and the requirements of our third-party payment vendor, exchange Rec Tokens they have earned for U.S. Dollars, based upon an exchange ratio and other requirements, procedures, and limitations established by us in our sole discretion from time to time, including those set forth in the Creator Payment Program Rules, which are incorporated by reference into these Terms. Rec Tokens are "earned" when creators of original User Content receive them from another Rec Room user in exchange for access to such User Content. Rec Tokens acquired in other ways (e.g., as part of a Rec Room Plus subscription, in connection with a contest, or purchased directly from Rec Room) are not considered "earned."
+
+Rec Room Inc., in its sole discretion, has the absolute right to manage, modify, suspend, revoke, and terminate the Creator Payment Program without notice, refund, compensation, or liability to any user, except as otherwise prohibited by applicable law. Any actions or omissions in violation of law, these Terms, the Code of Conduct, the Creator Payment Program Rules, or any Rec Room policy, may result in the suspension or termination of a given user's access to the Creator Payment Program and void any pending transactions thereunder.
+
+VIDEO PARTNER PROGRAM
+
+Rec Room Inc., in its sole discretion, may allow eligible users of Rec Room to participate in the Video Partner Program. Such eligible users participating in this program may be able to earn certain revenue from the in-app purchases of other users of Rec Room who have chosen to support you, subject to compliance with these Terms, requirements of our third-party payment vendor, and other requirements, procedures, and limitations established by us in our sole discretion from time to time, including those set forth in the Video Partner Program rules, which are incorporated by reference into these Terms.
+
+Rec Room Inc., in its sole discretion, has the absolute right to manage, modify, suspend, revoke, and terminate the Video Partner Program, without notice, refund, compensation, or liability to any user, except as otherwise prohibited by applicable law. Any actions or omissions in violation of law, these Terms, the Code of Conduct, the Video Partner Program rules, or any Rec Room policy, may result in the suspension or termination of a given user's access to the Video Partner Program and void any revenue earned thereunder.
+
+Limited License to Broadcast Game Play
+
+Rec Room Inc believes that the Game is best served by an active and excited community of users. To encourage community growth and development, we hereby grant each user ("Broadcasting User") a limited, revocable, royalty-free license to broadcast such Broadcasting User's unique play within the Game ("Broadcasted Content"), but only through third-party media that is, at the time of broadcast, currently approved by Rec Room Inc ("Approved Broadcaster(s)"). In furtherance of your exercise of the foregoing limited license, you may assume that other users who participate in gameplay with you have given you nonexclusive performance rights for their parts in your Broadcasted Content, unless or until you have notice that he, she, or they opts out in accordance with the provisions outlined below. To the extent a user opts out, our license with respect to Broadcasted Content including that user is revoked.
+
+The above limited license to broadcast the Game is subject to the additional conditions:
+A Broadcasting User may only broadcast his or her own gameplay;
+All Broadcasted Content must otherwise comply with these Terms, the Code of Conduct, and the Privacy Policy;
+Broadcasting Users assume all liability for ensuring their Broadcasted Content, and any monetization of Broadcasted Content, fully complies with all applicable laws, as well as the Approved Broadcaster(s)' applicable terms of service, policies, rules, and guidelines;
+Rec Room Inc may revoke a user's license to broadcast for any or no reason and without notice.
+
+Opting Out
+
+Any user may revoke such user's permission to a Broadcasting User to be included in Broadcasted Content by providing written notice to the Broadcasting User of his, her, or their decision to opt out ("Opt-Out Notice"). Without any obligation to do so, Rec Room Inc may also provide Opt-Out Notices on a case-by-case basis on behalf of users. Upon receipt of an Opt-Out Notice, the Broadcasting User must promptly remove the Broadcasted Content or otherwise modify the Broadcasted Content to remove the other user(s). Rec Room Inc does not assume any responsibility for ensuring compliance with the foregoing.
+
+Approved Broadcasters
+
+The following is an exclusive list of currently Approved Broadcasters. Modifications to this list may be made here, or elsewhere on the store page for the Game. Users may only broadcast content through currently Approved Broadcasters. We do not claim any affiliation with the Approved Broadcasters, nor do we make any representations as to the quality or functionality of the Approved Broadcasters' services.
+Twitch Interactive, Inc.
+YouTube, LLC
+Facebook Inc.
+Twitter Inc.
+reddit Inc.
+
+We reserve the right to add or remove Approved Broadcasters as we see fit. If you would like to request that a broadcaster be added to the list above, feel free to contact us at support@recroom.com.
+
+ARBITRATION NOTICE: UNLESS YOU OPT OUT OF ARBITRATION WITHIN 30 DAYS OF THE DATE YOU FIRST AGREE TO THESE TERMS BY FOLLOWING THE OPT-OUT PROCEDURE SPECIFIED IN THE "ARBITRATION" SECTION BELOW, AND EXCEPT FOR CERTAIN TYPES OF DISPUTES DESCRIBED IN THE "ARBITRATION" SECTION BELOW, YOU AGREE THAT DISPUTES BETWEEN YOU AND Rec Room Inc WILL BE RESOLVED BY BINDING, INDIVIDUAL ARBITRATION AND YOU ARE WAIVING YOUR RIGHT TO A TRIAL BY JURY OR TO PARTICIPATE AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS ACTION OR REPRESENTATIVE PROCEEDING.
+
+Who May Use the Game and/or Services
+
+Eligibility
+
+The Game and Services are available to users of all ages; however, the use of the Game by children under the age of 13 is subject to the terms of the Privacy Policy, particularly the section thereof entitled "Children Under the Age of 13".
+
+Account Requirement
+
+If you want to use the Game you will have to have a Steam Account, an Oculus account, or an Account for PlayStation™Network, as applicable ("Accounts" and each an "Account"). We do not administer Accounts, rather, they are administered by Valve Corporation, Sony Interactive Entertainment, or Oculus VR, LLC, as applicable. You are responsible for all activities that occur under any Account associated with you, whether or not you know about them. Furthermore, by playing Rec Room through PlayStation®VR, the information associated with your Account for PlayStation™Network (including your PlayStation™Network Online ID) will automatically be transmitted to our server without any action on your part. We will not be liable for any loss that you may incur as a result of someone else's authorized or unauthorized access to your Account. You may be liable, however, for losses incurred by Rec Room Inc or third parties due to someone else's use of your Account. Later versions of the Game may require that you establish a different account with us, and additional terms and restrictions will then apply.
+
+Health and Safety Precautions
+
+The below should be reviewed before use of the Game. If the Game will be used by children, this information should be read and explained to them by an adult. Failing to review the below health and safety precautions may cause damage to property, injury, or death. These health and safety precautions are not intended to be an exhaustive list, and use of the Game may involve other health and/or safety risks not contained herein. Rec Room Inc is not liable for any damage to property, injury, or death that may occur as the result of your failure to review the health and safety precautions or as a result of the interactions between you or your family members and people or objects in or around the play area during your use of the Game.
+
+Children
+
+Adults should monitor children who are using or have used the Game for any of the symptoms described below, and should limit the time children spend using the Game and ensure that they take breaks during use. Prolonged use should be avoided, as it could negatively impact hand-eye coordination, balance, and multi-tasking ability. Adults should monitor children closely during and after use of the Game for any decrease in these abilities.
+
+Epileptic Seizure Warning
+
+Please note that certain people are susceptible to epileptic seizures or loss of consciousness when exposed to certain flashing lights or light patterns, even if they have never experienced epileptic symptoms or been previously diagnosed with epilepsy. Such people may have a seizure while watching certain images on screens, including virtual reality headsets, or playing certain video games, including the Game. If you or anyone in your family has ever had symptoms related to epilepsy (seizures or loss of consciousness in particular) when exposed to flashing lights, you should consult your doctor prior to playing the Game. Parents and guardians should watch their children while playing the Game. Stop playing the Game and consult a doctor if you or your child has any of the following symptoms: Convulsions; Eye or muscle twitching; Loss of consciousness or awareness; Altered vision; Involuntary movements; or Disorientation.
+
+Rec Room Inc is not liable for any death, injury, or health complications resulting from any epileptic symptoms or conditions which may occur during or as a result of your use of the Game. To reduce the likelihood of a seizure or epileptic symptoms do not play the Game when tired or need sleep and take 10 or 15 minute breaks every 30 minutes while playing the Game.
+
+Motion Sickness
+
+Playing video games (especially virtual reality games), including the Game, may cause motion sickness in some players. If you or your child feels dizzy or nauseous when playing the Game, stop playing and rest. Do not drive, operate heavy machinery or engage in other demanding or strenuous activity until you feel better. To limit the risk of motion sickness while playing the Game, do not use the Game when you are tired, need sleep, are under the influence of alcohol or drugs, are hung-over, have digestive problems, are under emotional stress or anxiety, or when suffering from cold, flu, headaches, migraines, or earaches or other health issues which may increase your susceptibility to adverse symptoms.
+
+Repetitive Motion Injuries and Eyestrain
+
+Playing video games, including the Game, can make your muscles, joints, skin or eyes hurt. To avoid problems such as tendinitis, carpal tunnel syndrome, skin irritation or eyestrain:
+Avoid excessive play;
+Adults should monitor children;
+Take a 10 to 15 minute break every 30 minutes while playing the Game;
+If your hands, wrists, arms, eyes or other parts of your body become tired or sore while playing, or if you feel symptoms such as tingling, numbness, burning or stiffness, stop and rest for several hours before playing again; and
+If you continue to have any of the above symptoms or other discomfort during or after playing the Game, stop playing and consult a doctor.
+
+Play Area Precautions
+
+Give yourself plenty of room to play the Game. Always be aware of your surroundings when playing the Game. While playing the Game in virtual reality you will be moving around the play area and using your hands to control gameplay. Make sure the play area is clear of furniture, objects and other people that could be bumped into during game play. Please ensure that you are not near other people, stairs, balconies, windows, walls furniture or other objects that may pose a danger to you or could be damaged or injured during or immediately after using the Game. All objects that may pose tripping hazards, could cause injury, or could be damaged as the result of your contact with them while playing the Game should be removed from the play area prior to your or your family members playing the Game. A minimum six-feet-by-six-feet unobstructed play area is recommended for safe enjoyment of the Game. Never handle sharp or dangerous objects while playing the Game.
+
+Due to the immersive nature of the Game, sound volumes should be kept at low enough levels that you are able to maintain awareness of your surroundings while playing the Game and so as not to damage your hearing. You should not use the Game if your awareness of your surroundings is impaired by lack of sleep, drugs, alcohol, the effects of a hang-over, stress, anxiety or when suffering from a cold, flu, headaches, migraines or other illnesses.
+
+Content and Content Rights
+
+For purposes of these Terms: (i) "Content" means text, graphics, images, music, software, audio, video, works of authorship of any kind, and information or other materials that are included in the Game or posted, generated, provided or otherwise made available through the Services; and (ii) "User Content" means any Content that you make available through the Services, including by posting, uploading, inputting, providing, or submitting, publicly or privately, on community forums or directly to Rec Room Inc. User Content includes any feedback or suggestions you provide to Rec Room Inc. Content includes without limitation User Content.
+
+Content Ownership, Responsibility and Removal
+
+Rec Room Inc and its licensors exclusively own all right, title and interest in and to the Game, Services, and Content, including all associated intellectual property rights, with the exception of User Content, to which Rec Room Inc does not claim any ownership rights, but rather possesses license rights as described below. Nothing in these Terms will otherwise be deemed to restrict any rights that you may have to use and exploit your User Content. You acknowledge that the Services and Content are protected by copyright, trademark, and other laws of the United States and foreign countries. You agree not to remove, alter or obscure any copyright, trademark, service mark or other proprietary rights notices incorporated in or accompanying the Services or Content.
+
+Rights in User Content Granted by You
+
+You acknowledge and agree that by submitting any User Content, or by making any User Content available through the Game or Services, you hereby grant Rec Room Inc a non-exclusive, transferable, sub-licensable, perpetual, worldwide, royalty-free license to use, incorporate into any of Rec Room Inc's intellectual property, Game or other software, Services, or other products, copy, modify, create derivative works based upon, distribute, publicly display, publicly perform, and distribute your User Content. Rec Room Inc will not compensate you with respect to the use of any User Content. Any User Content that you post on our public forums will be visible to the public and neither we nor any of our users owe you any confidentiality obligations in relation to your User Content. You are solely responsible for all your User Content. You represent and warrant that: (i) you own all your User Content or you have all rights that are necessary to grant us the license rights in your User Content under these Terms; and (ii) neither your User Content, nor your use and provision of your User Content to be made available through the Services, nor any use of your User Content by Rec Room Inc on or through the Game or Services will infringe, misappropriate or violate a third party's intellectual property rights, or rights of publicity or privacy, or result in the violation of any applicable law or regulation. You can remove your User Content by specifically deleting it. However, in certain instances, some of your User Content may not be completely removed and copies of your User Content may continue to exist on the Services. We are not responsible or liable for the removal or deletion of (or the failure to remove or delete) any of your User Content.
+
+Additional Standards for User Content Offered in Exchange for Rec Tokens
+
+If you offer User Content to other users in exchange for Rec Token, regardless of whether you are eligible to participate in the Creator Payment Program, you must meet the following additional standards:
+Your User Content must be original to you, i.e. it may not be the User Content of another User.
+You must address any complaints or issues raised by Users who have paid you Rec Tokens for access to any of your User Content, and you must do so in a timely manner using such means as we may specify from time-to-time.
+You must not implement any gambling, casino style games, or games of chance that involve any real currency, virtual currency, or Rec Tokens in any way.
+You must not create promotions of any sort (including contests, raffles, lotteries, etc.) that involve any real currency, virtual currency, or Rec Tokens in any way.
+You must not sell, trade or give away Rec Tokens or User Content outside of Rec Room.
+You must not upload, publish, or otherwise make available User Content that has previously been moderated or suspended from Rec Room.
+You must not utilize "clickbait" or any other misleading or obnoxious methods in connection with promoting your User Content.
+
+Of course, you must otherwise at all times be in compliance with the rest of these Terms, the Code of Conduct, and the Creator Payment Program Rules (if you are eligible to participate and do so participate in such program).
+
+General Prohibitions and Rec Room Inc's Enforcement Rights
+
+You agree not to do any of the following:
+Do anything in connection with your use of the Services, including posting, uploading, publishing, submitting or transmitting any Content that: (i) is illegal; (ii) infringes, misappropriates or violates a third party's intellectual property rights, or rights of publicity or privacy; (iii) violates, or encourages any conduct that would violate, any applicable law or regulation or would give rise to civil liability; (iv) is fraudulent, false, misleading or deceptive; (v) is defamatory, obscene, pornographic, vulgar, racially or ethnically offensive; (vi) harasses, threatens or embarrasses others, or promotes discrimination, bigotry, racism, hatred, harassment or harm against any individual or group; (vii) is violent or threatening or promotes violence or actions that are threatening to any person or entity; or (viii) promotes illegal or harmful activities or substances; (ix) is cheating (i.e., unauthorized methods that influence Rec Room's gameplay, including exploits of any in-game bugs, that give you and/or any other user an advantage over other players not using such methods); (x) is offensively coarse, intimidating or threatening, constitutes unwelcome sexual advances or requests for sexual favors, or is otherwise likely to cause annoyance or alarm; (xi) violates the Code of Conduct; or (xii) violates "Netiquette." Additionally, to ensure that Rec Room is a safe and welcoming space for all users, you agree to report to us using the contact information provided below: (1) any other users that you believe are violating any of the foregoing prohibitions, and (2) any Content that you believe was submitted by or about a child under the age of 13.
+Use, display, mirror or frame the Services or any individual element within the Services, Rec Room Inc's name, any Rec Room Inc trademark, logo or other proprietary information, or the layout and design of any page or form contained on a page, without Rec Room Inc's express written consent;
+Access, tamper with, or use non-public areas of the Services, Rec Room Inc's computer systems, or the technical delivery systems of Rec Room Inc's providers;
+Avoid, bypass, remove, deactivate, impair, descramble or otherwise circumvent any technological measure implemented by Rec Room Inc or any of Rec Room Inc's providers or any other third party (including another user) to protect the Services or Content;
+Attempt to access or search the Services or Content or download Content from the Services through the use of any engine, software, tool, agent, device or mechanism (including spiders, robots, crawlers, data mining tools or the like) other than the software and/or search agents provided by Rec Room Inc or other generally available third-party web browsers;
+Use any meta tags or other hidden text or metadata utilizing a Rec Room Inc trademark, logo URL or product name without Rec Room Inc's express written consent;
+Use the Services or Content, or any portion thereof, for any commercial purpose or for the benefit of any third party or in any manner not permitted by these Terms;
+Attempt to decipher, decompile, disassemble or reverse engineer any of the software used to provide the Services or Content;
+Interfere with, or attempt to interfere with, the access of any user, host or network, including, without limitation, sending a virus, overloading, flooding, spamming, or mail-bombing the Services;
+Collect or store any personally identifiable information from the Services from other users of the Services without their express permission;
+Impersonate or misrepresent your affiliation with any person or entity;
+Violate any applicable law or regulation; or
+Encourage or enable any other individual to do any of the foregoing.
+
+Although we're not obligated to monitor access to or use of the Game, Services, or Content or to review or edit any Content, we have the right to do so for the purpose of operating and updating the Game and/or Services, to ensure compliance with these Terms, and to comply with applicable law or other legal requirements. We reserve the right, but are not obligated, to remove, disable or suspend your or any user's access to any Content or the Services, at any time and without notice, including, but not limited to, if we, at our sole discretion, consider any Content or activity when using the Services to be objectionable or in violation of these Terms. We have the right to investigate violations of these Terms or conduct that affects the Game and/or Services including, consulting and cooperating with law enforcement authorities to prosecute users who violate the law.
+
+DMCA/Copyright Policy
+
+Rec Room Inc respects copyright law and expects its users to do the same. It is Rec Room Inc's policy to terminate in appropriate circumstances Account holders or other users of the Game and/or Services who repeatedly infringe or are believed to be repeatedly infringing the rights of copyright holders.
+
+Rec Room Inc will respond to allegations of copyright infringement or other violations in accordance with the Digital Millennium Copyright Act (DMCA), 17 U.S.C. § 512. The DMCA provides a means for you to notify us concerning alleged copyright infringement. When we receive a valid DMCA notice, we will respond under this process by taking down the allegedly offending content. We will then take reasonable steps to contact its owner so that they may file a counter-notification. If we receive a valid counter-notification, we may restore the original content at issue, unless you notify us that you have filed legal action seeking a court order restraining the alleged infringer from continuing the allegedly infringing conduct.
+
+If you believe that your copyrighted work is being infringed by material that appears in our Game, websites, or other online services, please provide Rec Room Inc's designated agent (address appears below) the following information that the DMCA requires:
+A description or identification of the copyrighted work that you claim to have been infringed, or, if multiple works at a single online site are covered by a single notification, a representative list of such works at that site.
+A description of where the allegedly infringing material is located in the Game, Rec Room Inc's Game website(s), or other related electronic platform.
+Information reasonably sufficient to permit Rec Room Inc to contact you as the complaining party, such as an address, telephone number, and, if available, an electronic mail address at which you may be contacted.
+Your statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.
+A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+Rec Room Inc's agent for notice of claims of copyright or trademark infringement on the Sites can be reached as follows:
+
+Mail
+
+Rec Room Inc
+
+Attention: Copyright Agent
+
+300 Elliott Ave W, Suite 450
+
+Seattle, WA 98119
+
+Email
+
+support@recroom.com
+
+Please also note that for purposes of Section 512(f) of the U.S. Copyright Act, any person who knowingly misrepresents that material or activity is infringing may be subject to liability.
+
+Links to Third Party Websites or Resources
+
+The Game and/or Services may contain links to third-party websites or resources. We provide these links only as a convenience and are not responsible for the content, products or services on or available from those websites or resources or links displayed on such websites. You acknowledge sole responsibility for and assume all risk arising from, your use of any third-party websites or resources.
+
+Termination
+
+We may terminate your access to and use of the Game or Services, at our sole discretion, at any time and without notice to you. Upon any termination, discontinuation or cancellation of the Game, Services, and/or your Account, provisions relating to Content Ownership, DMCA/Copyright Policy, Termination, Warranty Disclaimers, Indemnity, Limitations of Liability, and Dispute Resolution shall survive such termination.
+
+Warranty Disclaimers
+
+THE GAME, SERVICES, AND CONTENT ARE PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND. WITHOUT LIMITING THE FOREGOING, WE EXPLICITLY DISCLAIM ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT, AND ANY WARRANTIES ARISING OUT OF COURSE OF DEALING OR USAGE OF TRADE. We make no warranty that the Game or Services will meet your requirements or be available on an uninterrupted, secure, or error-free basis. We make no warranty regarding the quality, accuracy, timeliness, truthfulness, completeness, or reliability of any Content.
+
+Indemnity
+
+You will indemnify and hold harmless Rec Room Inc and its officers, directors, employees and agents, from and against any claims, disputes, demands, liabilities, damages, losses, and costs and expenses, including, without limitation, reasonable legal and accounting fees arising out of or in any way connected with (i) your access to or use of the Game, Services, or Content, (ii) your User Content, or (iii) your violation of these Terms.
+
+Limitation of Liability
+
+NEITHER REC ROOM INC NOR ANY OTHER PARTY INVOLVED IN CREATING, PRODUCING, OR DELIVERING THE GAME, SERVICES, OR CONTENT WILL BE LIABLE FOR ANY PERSONAL INJURY, INCIDENTAL, SPECIAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, LOSS OF DATA OR GOODWILL, SERVICE INTERRUPTION, COMPUTER DAMAGE OR SYSTEM FAILURE OR THE COST OF SUBSTITUTE SERVICES ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR FROM THE USE OF OR INABILITY TO USE THE GAME, SERVICES, OR CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), PRODUCT LIABILITY OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT REC ROOM INC HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE, EVEN IF A LIMITED REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, SO THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IN NO EVENT WILL REC ROOM INC'S TOTAL LIABILITY ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR FROM THE USE OF OR INABILITY TO USE THE GAME, SERVICES, OR CONTENT EXCEED THE AMOUNTS YOU HAVE PAID TO REC ROOM INC FOR USE OF THE GAME, SERVICES, OR CONTENT OR ONE HUNDRED DOLLARS ($100), IF YOU HAVE NOT HAD ANY PAYMENT OBLIGATIONS TO REC ROOM INC, AS APPLICABLE. THE EXCLUSIONS AND LIMITATIONS OF DAMAGES SET FORTH ABOVE ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE BARGAIN BETWEEN REC ROOM INC AND YOU.
+
+Dispute Resolution
+
+Governing Law
+
+These Terms and any action related thereto will be governed by the laws of the State of Washington without regard to its conflict-of-laws provisions.
+
+Agreement to Arbitrate
+
+You and Rec Room Inc agree that any dispute, claim or controversy arising out of or relating to these Terms or the breach, termination, enforcement, interpretation or validity thereof or the use of the Services or Content (collectively, "Disputes") will be settled by binding arbitration, except that each party retains the right: (i) to bring an individual action in small claims court and (ii) to seek injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation or violation of a party's copyrights, trademarks, trade secrets, patents or other intellectual property rights (the action described in the foregoing clause (ii), an "IP Protection Action"). Without limiting the preceding sentence, you will also have the right to litigate any other Dispute if you provide Rec Room Inc with written notice of your desire to do so by email or regular mail within thirty (30) days following the date you first agree to these Terms (such notice, an "Arbitration Opt-out Notice"). If you don't provide Rec Room Inc with an Arbitration Opt-out Notice within the thirty (30) day period, you will be deemed to have knowingly and intentionally waived your right to litigate any Dispute except as expressly set forth in clauses (i) and (ii) above. The exclusive jurisdiction and venue of any IP Protection Action or, if you timely provide Rec Room Inc with an Arbitration Opt-out Notice, will be the state and federal courts located in the Western District of Washington and each of the parties hereto waives any objection to jurisdiction and venue in such courts. Unless you timely provide Rec Room Inc with an Arbitration Opt-out Notice, you acknowledge and agree that you and Rec Room Inc are each waiving the right to a trial by jury or to participate as a plaintiff or class member in any purported class action or representative proceeding. Further, unless both you and Rec Room Inc otherwise agree in writing, the arbitrator may not consolidate more than one person's claims, and may not otherwise preside over any form of any class or representative proceeding. If this specific paragraph is held unenforceable, then the entirety of this "Dispute Resolution" section will be deemed void. Except as provided in the preceding sentence, this "Dispute Resolution" section will survive any termination of these Terms.
+
+Arbitration Rules
+
+The arbitration will be administered by JAMS alternative dispute resolution ("JAMS") in accordance with the applicable JAMS clauses, rules, and procedures (the "JAMS Rules") then in effect, except as modified by this "Dispute Resolution" section. (The JAMS Rules are available at http://www.jamsadr.com/adr-rules-procedures/ or by calling JAMS at 1-800-352-5267.) The Federal Arbitration Act will govern the interpretation and enforcement of this Section.
+
+Arbitration Process
+
+A party who desires to initiate arbitration must provide the other party with a written Demand for Arbitration as specified in the JAMS Rules. The arbitrator will be either a retired judge or an attorney licensed to practice law and will be selected by the parties from JAMS's roster of arbitrators. If the parties are unable to agree upon an arbitrator within seven (7) days of delivery of the Demand for Arbitration, then JAMS will appoint the arbitrator in accordance with the JAMS Rules.
+
+Arbitration Location and Procedure
+
+Unless you and Rec Room Inc otherwise agree, the arbitration will be conducted at JAMS's Seattle, Washington offices located at 600 University Street, Suite 1910 Seattle, WA 98101. If your claim does not exceed $10,000, then the arbitration will be conducted solely on the basis of the documents that you and Rec Room Inc submit to the arbitrator, unless you request a hearing or the arbitrator determines that a hearing is necessary. If your claim exceeds $10,000, your right to a hearing will be determined by the JAMS Rules. Subject to the JAMS Rules, the arbitrator will have the discretion to direct a reasonable exchange of information by the parties, consistent with the expedited nature of the arbitration.
+
+Arbitrator's Decision
+
+The arbitrator will render an award within the time frame specified in the JAMS Rules. The arbitrator's decision will include the essential findings and conclusions upon which the arbitrator based the award. Judgment on the arbitration award may be entered in any court having jurisdiction thereof. The arbitrator's award of damages must be consistent with the terms of the "Limitation of Liability" section above as to the types and amounts of damages for which a party may be held liable.
+
+Fees
+
+Your responsibility to pay any JAMS filing, administrative and arbitrator fees will be solely as set forth in the JAMS Rules.
+
+Changes
+
+Notwithstanding the provisions of the "Changes to Terms and Services" section above, if Rec Room Inc changes this "Dispute Resolution" section after the date you first accepted these Terms (or accepted any subsequent changes to these Terms), you may reject any such change by sending us written notice within 30 days of the date such change became effective, as indicated in the "Last Updated" date above or in the date of Rec Room Inc's email to you notifying you of such change. By rejecting any change, you are agreeing that you will arbitrate any Dispute between you and Rec Room Inc in accordance with the provisions of this "Dispute Resolution" section as of the date you first accepted these Terms (or accepted any subsequent changes to these Terms).
+
+General Terms
+
+These Terms constitute the entire and exclusive understanding and agreement between Rec Room Inc and you regarding the Services and Content, and these Terms supersede and replace any and all prior oral or written understandings or agreements between Rec Room Inc and you regarding the Services and Content. If any provision of these Terms is held invalid or unenforceable (either by an arbitrator appointed pursuant to the terms of the "Arbitration" section above or by court of competent jurisdiction, but only if you timely opt out of arbitration by sending us an Arbitration Opt-out Notice in accordance with the terms set forth above), that provision will be enforced to the maximum extent permissible and the other provisions of these Terms will remain in full force and effect. You may not assign or transfer these Terms, by operation of law or otherwise, without Rec Room Inc's prior written consent. Any attempt by you to assign or transfer these Terms, without such consent, will be null. Rec Room Inc may freely assign or transfer these Terms without restriction. Subject to the foregoing, these Terms will bind and inure to the benefit of the parties, their successors and permitted assigns. Any notices or other communications provided by Rec Room Inc under these Terms, including those regarding modifications to these Terms, will be given: (i) via email; or (ii) by posting to the Services. For notices made by e-mail, the date of receipt will be deemed the date on which such notice is transmitted. Rec Room Inc's failure to enforce any right or provision of these Terms will not be considered a waiver of such right or provision. The waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of Rec Room Inc. Except as expressly set forth in these Terms, the exercise by either party of any of its remedies under these Terms will be without prejudice to its other remedies under these Terms or otherwise.
+
+Contact Information
+
+If you have any questions about these Terms, the Game and/or the Services, please contact Rec Room Inc at support@recroom.com.
+
+Sony Interactive Entertainment America
+
+Purchase and use of items are subject to the Network Terms of Service and User Agreement. This online service has been sublicensed to you by Sony Interactive Entertainment America.
+
+Sony Interactive Entertainment Network Europe Limited
+
+Any content purchased in an in-game store will be purchased from Sony Interactive Entertainment Network Europe Limited ("SIENE") and be subject to PlayStation™Network Terms of Service and User Agreement which is available on the PlayStation™Store. Please check usage rights for each purchase as these may differ from item to item. Unless otherwise shown, content available in any in-game store has the same age rating as the game.
+
+About The Cisco-Provided Binary of OpenH264 Video Codec
+
+Cisco provides this program under the terms of the BSD license.
+
+Additionally, this binary is licensed under Cisco's AVC/H.264 Patent Portfolio License from MPEG LA, at no cost to you, provided that the requirements and conditions shown below in the AVC/H.264 Patent Portfolio sections are met.
+
+As with all AVC/H.264 codecs, you may also obtain your own patent license from MPEG LA or from the individual patent owners, or proceed at your own risk. Your rights from Cisco under the BSD license are not affected by this choice.
+
+For more information on the OpenH264 binary licensing, please see the OpenH264 FAQ found at http://www.openh264.org/faq.html#binary
+
+A corresponding source code to this binary program is available under the same BSD terms, which can be found at http://www.openh264.org
+
+BSD License
+
+Copyright © 2014 Cisco Systems, Inc.
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+AVC/H.264 Patent Portfolio License Notice
+
+The binary form of this Software is distributed by Cisco under the AVC/H.264 Patent Portfolio License from MPEG LA, and is subject to the following requirements, which may or may not be applicable to your use of this software:
+
+THIS PRODUCT IS LICENSED UNDER THE AVC PATENT PORTFOLIO LICENSE FOR THE PERSONAL USE OF A CONSUMER OR OTHER USES IN WHICH IT DOES NOT RECEIVE REMUNERATION TO (i) ENCODE VIDEO IN COMPLIANCE WITH THE AVC STANDARD ("AVC VIDEO") AND/OR (ii) DECODE AVC VIDEO THAT WAS ENCODED BY A CONSUMER ENGAGED IN A PERSONAL ACTIVITY AND/OR WAS OBTAINED FROM A VIDEO PROVIDER LICENSED TO PROVIDE AVC VIDEO. NO LICENSE IS GRANTED OR SHALL BE IMPLIED FOR ANY OTHER USE. ADDITIONAL INFORMATION MAY BE OBTAINED FROM MPEG LA, L.L.C. SEE HTTP:/WWW.MPEGLA.COM
+
+Accordingly, please be advised that content providers and broadcasters using AVC/H.264 in their service may be required to obtain a separate use license from MPEG LA, referred to as "(b) sublicenses" in the SUMMARY OF AVC/H.264 LICENSE TERMS from MPEG LA found at http://www.openh264.org/mpegla
+
+AVC/H.264 Patent Portfolio License Conditions
+
+In addition, the Cisco-provided binary of this Software is licensed under Cisco's license from MPEG LA only if the following conditions are met:
+The Cisco-provided binary is separately downloaded to an end user's device, and not integrated into or combined with third party software prior to being downloaded to the end user's device;
+The end user must have the ability to control (e.g., to enable, disable, or re-enable) the use of the Cisco-provided binary;
+Third party software, in the location where end users can control the use of the Cisco-provided binary, must display the following text: "OpenH264 Video Codec provided by Cisco Systems, Inc."
+Any third-party software that makes use of the Cisco-provided binary must reproduce all of the above text, as well as this last condition, in the EULA and/or in another location where licensing information is to be presented to the end user.
+
+Privacy Policy
+
+Effective: December 1, 2021
+
+Rec Room Inc., a Delaware corporation ("Company", "we", "our", and their derivatives) provides the websites, http://www.recroom.com, http://www.rec.net, and the subdomains of each of the foregoing (collectively, the "Website") and the Rec Room® video game (the "Game" and, with the Website, the "Services").
+
+This Policy sets forth how we collect, use, protect, store, and otherwise process your Personal Information (defined below). This Policy does NOT apply to information we collect offline or you provide to or is collected by any third party (except as otherwise provided below).
+
+For our practices regarding children, please see the Children's section in Section 2 below.
+
+1. What types of Personal Information does the Company collect?
+
+Generally
+
+We may collect different types of information from you depending on how you use our Services, including Personal Information. "Personal Information" means information that relates to an identified or identifiable natural person. The categories of Personal Information we may collect are listed below. Certain types of Personal Information may fall under more than one category.
+Identifiers: We may collect your first, middle and last name, email address, username, postal address, Social Security number or employer identification number, telephone number, IP address, or display name.
+Characteristics of protected classifications under California or federal law: We may collect your date of birth or age.
+Commercial information: We may collect your sale history in the Game.
+Voice data: We may receive your voice data through your microphone. Typically we do not store this information, although we reserve the right to process your voice data locally in certain public room instances for moderation purposes. For moderation purposes, some of this voice data may be recorded and sent to a third party service for additional processing. Any such recordings are anonymized and retained for 30 days. Voice data in private instances is never processed, stored or sent to third parties.
+Sensory data: We may receive your voice through your microphone and animation data derived from your head movement and facial expressions (for example through your TrueDepth® camera on certain Apple® devices). We do not store this information.
+Internet or other similar network activity: We may collect your play history, running/loaded dynamic link library ("DLLs") on your computer or data gathered from a "small memory dump."
+Categories of personal information described in Section 1798.80(e) of the California Customer Records: We may collect your first, middle, and last name, telephone number, physical characteristics, signature, Social Security number, postal address, or account number.
+Other categories: We may collect information from the content that you create and share publicly in the Game, and information you choose to reveal in the Game through multiplayer chat or other public functions.
+
+We may also collect information that does not generally identify you but may become associated with your account. We may use information that does not identify you for any permissible business purpose under applicable law.
+
+2. Children Under the Age of 13
+
+This section notifies parents of our practices with respect to the collection of personal information from children under the age of 13 ("Children" and each a "Child") and the use and disclosure of such information. This section only applies to Children and supplements the other provisions of this Policy.
+
+Junior Mode
+
+If a user of the Game self-identifies or is identified by us as being under the age of 13, their gameplay experience will automatically be set as "Junior Mode." In order to comply with the Children's Online Privacy Protection Act of 1998 and its rules (collectively, "COPPA"), users in "Junior Mode" ("Junior Users" and each a "Junior User") may have access to fewer features of the Game than non-Junior Users. This is designed to limit our access and the access of users of the Services to the Personal Information of Children. Junior Users are restricted from communicating with or otherwise making their Personal Information publicly available to other users of the Services. For example, Junior Users are unable to use "whiteboarding" or voice communication functions of the Game, and Junior Users' display names will be randomized/anonymized.
+
+Registration
+
+Junior Users may register an account with us using a registration process similar to the one adults go through; however, in compliance with COPPA, Junior Users may first be subject to a parental notice and/or consent process prior to activation of their account. To initiate the registration and/or consent process for a Junior User, we collect a Parent's email address, and the Parent is then requested to create a password for their Child's account, as well as supply additional account information and settings. We will automatically generate randomized display names for registered Junior Users.
+
+Use/disclosure
+
+The Personal Information we collect from/about Children is used to give Children access to certain features of the Game and communicate with a Parent about the Child's registration, including for the purpose of verifying their Child's information in connection with registration. We do not share or otherwise disclose Children's Personal Information except (1) as may be necessary to protect the safety of a Child, including by disclosing his or her Personal Information, where appropriate, to law enforcement agencies or for an investigation related to public safety; (2) to enable us to take precautions against liability; (3) to protect the safety and security of the Services; or (4) where required to do so by law or legal process.
+
+We and the third-party service providers listed below may collect or maintain Children's Personal Information through the Services.
+Exit Games GmbH
+Amplitude, Inc.
+Google Analytics
+Microsoft Azure
+
+Please contact us with questions about our service providers' privacy policies and collection and use practices by mail at Rec Room Inc., 87 Wall St. Seattle, WA 98121, by email at support@recroom.com, or by phone at (314) 635-8471.
+
+At any time, parents may review their Child's Personal Information maintained by us, require us to correct or delete such Personal Information, request that we delete their Child's account, and/or refuse to permit us from further collecting or using the Child's Personal Information by contacting us using the email address provided above. To protect parents' privacy and security and the privacy and security of Children that use the Services, we may require parents to take certain steps or provide additional information, which we will keep strictly confidential, to verify a parent's identity before we provide any information or make corrections.
+
+3. From what sources does the Company collect Personal Information?
+
+Directly From You
+
+We may collect your Personal Information when you provide it to us directly. For example:
+When you register for an account to use our Services, we may collect your age or date of birth, email address, phone number, username, and display name.
+When you contact us or report a problem with the Services, we may collect records and copies of your correspondence.
+When the Game crashes during play, we may collect your running/loaded DLLs on your computer, your username, and the data gathered from a "small memory dump".
+When you use the multiplayer chat or other public functions in the Game, we may collect the information you choose to disclose such as your username.
+When you choose to use your device microphone for voice chat. In some public room instances voice chat may be processed on device, and in some cases recorded and transmitted to a third party service for moderation purposes. Any such recordings are anonymized and stored for 30 days.
+When you respond to a survey or questionnaire, we may collect the information provided.
+
+On Apple® devices running the iOS or iPadOS™ operating systems, Rec Room may request permission to access the following:
+Microphone - Rec Room requests access to the microphone in order to support real time voice chat. Voice chat is optional and may be turned off at any time. Rec Room will continue to function (without voice chat) if you choose to deny permission.
+TrueDepth® camera - on devices that support it, Rec Room requests access to the TrueDepth® camera in order to animate your in-game avatar in certain scenarios. This functionality is optional and may be turned off at any time. Rec Room will continue to function (without this animation feature) if you choose to deny permission. We don't store this information or share it with third parties.
+
+Automatically From You
+
+We may collect your Personal Information automatically as you use our Services. For example, we may collect your Personal Information as you browse our Website. For more information about our use of automatic tracking technologies and certain choices we offer you with respect to them, please see Section 4 below.
+
+From Third Parties
+
+We may receive Personal Information from or through third parties that help us provide or facilitate your access to the Services. For example, we may receive your Personal Information from:
+Game platforms such as PlayStation, Oculus, and Steam (e.g., when you first play the Game using PlayStation®VR, Personal Information associated with your account for PlayStation™Network, including your PlayStation™Network Online ID, may be disclosed to us);
+Multi-player platform providers;
+Cloud computing providers;
+Payment platform providers; and
+Data analytics providers.
+
+We abide by this Policy when we use Personal Information provided to us by third parties. However, we do not control the Personal Information that third parties collect or how they use that Personal Information. You should review the third parties' privacy policies for more information about how they collect, use, and share information they obtain and use.
+
+4. How does the Company use cookies and other automatic data collection technologies?
+
+Our Cookies
+
+As you use the Services, we may use automatic data collection technologies, in particular, cookies, to collect certain Personal Information. Cookies are small data file identifiers that are transferred to your computer or mobile web browser that allow us and our service providers to recognize your browser or mobile device and transfer information about you and your use of our Services.
+
+Third Party Cookies
+
+Some cookies on the Services come from third parties. These cookies improve your experience by helping us better tailor our Services to you. For example, Google Analytics may use cookies to collect your Personal Information on our behalf to analyze your use of the Services.
+Google Analytics is a web analysis service of Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States. The Personal Information collected by Google in connection with your use of our Services is transmitted to a server of Google in the United States, where it is stored and analyzed. Google's collection and use of Personal Information is subject to Google's privacy policy: www.google.com/policies/privacy/partners/.
+
+Choices about Cookies
+
+You may set your browser to refuse all or some browser cookies (e.g., by opting out of Google Analytics at http://tools.google.com/dlpage/gaoptout or http://www.google.com/settings/ads) or to alert you when cookies are being sent. Please note that, if you disable or refuse cookies or other automatic data collection technologies, some aspects of the Services may be inaccessible or not function properly.
+
+5. For what purposes does the Company collect Personal Information?
+To provide or improve the Services – We may use your Personal Information to process your requests to access the Services and certain of their features and to generally present and improve our Services. For example, we may use your Personal Information to improve the Game. By way of another example, we may use your microphone and camera to provide the real-time voice chat features and in-Game avatar.
+To administer the Services – We may use your Personal Information for any lawful business purpose in connection with administering the Services. For example, if you reach out to us with a customer service inquiry, we may use your Personal Information to respond to you or to troubleshoot an issue you reported having with the Services. By way of another example, we may use your Personal Information to verify your age.
+To market the Services – We may use your Personal Information to market our Services to you. For example, with your prior consent, we may send you news and updates about our products and Services, including special offers and promotions.
+In furtherance of legal, health, and safety objectives – We may access, use, and share with others your Personal Information for purposes of health, safety, and other matters in the public interest. We may also provide access to your Personal Information to cooperate with official investigations or legal proceedings (e.g., in response to subpoenas, search warrants, court orders, or other legal processes). We may also provide access to protect our rights and property and those of our agents, users, and others including to enforce our agreements, policies, and our Terms of Service (available at https://recroom.com/terms-of-service).
+In connection with a sale or other transfer of our business – In the event all or some of our assets are sold, assigned, transferred to, or acquired by another company due to merger, divestiture, restructuring, reorganization, dissolution, financing, acquisition, bankruptcy, or otherwise, your Personal Information may be among the transferred assets.
+As may be described to you when collecting your Personal Information.
+
+We do not use automated decision-making in connection with the processing of your Personal Information, except to the extent necessary for age-gating functions.
+
+6. In what situations does the Company disclose your Personal Information?
+
+We may disclose your Personal Information:
+To our subsidiaries and affiliates;
+To our lawyers, consultants, accountants, business advisors, and similar service providers who owe us duties of confidentiality;
+To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of the Company's assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Information held by the Company pertaining to the users of our Services is among the assets transferred;
+To comply with any court order, law, or legal process, such as responding to a government or regulatory request;
+To enforce any contract we may have in effect with you;
+If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of us, our users, or others; and
+If you have consented to such a disclosure.
+
+7. How is my Personal Information protected?
+
+Our Retention, Purpose Limitation, and Security Policies
+
+We protect your Personal Information through a combination of collection, security, and retention policies.
+Limited retention. We only keep your Personal Information for as long as we need it for business and operational needs or to comply with any statutory, regulatory, or legal obligations. For example, we may retain Personal Information collected from you to support customer service inquiries and prevent repeated violations or suspected violations of the Terms of Service if your account has been banned or your access to the Services has been disabled for any reason. By way of another example, we may retain the content that you create and share publicly with the Rec Room community even after you stop using the Services.
+Purpose limitation. We will use your Personal Information only for the Services you choose to access and for the purposes for which you choose to share it. We will respect your requests to start or stop processing your Personal Information for marketing purposes, as well as the types of marketing messages you may wish to receive.
+Security measures. We use appropriate measures to ensure a level of security appropriate to the risk involved and have implemented contractual, technical, administrative, and physical security measures designed to protect Personal Information from unauthorized access, disclosure, use, and modification. For example, when you directly provide us with Personal Information, including through registration, we will encrypt that information using secure socket layer technology or similar technologies. As part of our privacy compliance processes, we review these security procedures on an ongoing basis to consider new technology and methods as necessary. However, please understand that our implementation of security measures as described in this Policy does not guarantee the security of your Personal Information.
+In the event of a security breach, no longer than 72 hours after we become aware of such a breach, we will notify the proper regulatory authorities and any users of the breach.
+
+Your Practices and Activities
+
+Your practices and activities are likewise very important for the protection your own Personal Information. You can take certain steps to help protect your Personal Information, such as being mindful of what you post in public places. For example:
+Do not use your real name when selecting a username.
+Do not post your real name in public-facing areas of the Services and do not share anything private about yourself.
+
+Users should also not pick a password that is easy to guess and should not share their password.
+
+Remember that we have no control over what third parties do with the content of such communications and no responsibility or obligation regarding third parties.
+
+8. Additional Notice for European Union and United Kingdom Residents
+
+The following applies to European Union residents pursuant to the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (General Data Protection Regulation) and United Kingdom residents pursuant to the Data Protection Act 2018:
+
+Place of Business
+
+We may store or process your Personal Information outside of the country where we collect it or which you reside. The Company has its primary place of business in the United States of America. You should understand that we may transfer some or all of your Personal Information to the United States of America to carry out certain operational and processing needs as described in this Policy.
+
+Transfer Mechanisms
+
+When transferring Personal Information out of the EU or UK, we implement technical, organizational, and physical safeguards to protect your Personal Information. We use European Commission approved standard contractual clauses and implement related measures required by applicable law. Please contact us if you have questions related to the relevant transfer mechanism for your Personal Information.
+
+Lawful Basis
+
+We only collect, use, or store your Personal Information if:
+You voluntarily provide it to us with your specific and informed consent (for example, when you sign up for marketing communications);
+It is necessary to provide you a Service that you have requested (for example, providing you access to the Game);
+We have a legitimate business interest that is not outweighed by your privacy rights (for example, to provide customer service); or
+It is necessary to protect your vital interests or the vital interests of others (for example, we may collect or share Personal Information where necessary to resolve an urgent medical situation or protect the health or safety of one of our users or someone else).
+
+Right to Access, Correct, Delete, or Restrict Processing
+
+Subject to any limitations and exceptions under applicable law, you have the right to request access to your Personal Information and exercise a number of rights:
+You have the right to correct or update certain types of Personal Information. In many cases, you can review or update your account information by accessing your account online.
+You have the right to request deletion of your Personal Information. If you choose to have your Personal Information removed from our Services, we will carry out your request within 30 days of account verification, subject to extension, and will only retain minimal Personal Information to document your request and the actions we took to carry out your request.
+You have the right to restrict certain processing of your Personal Information, and the right to object to some types of processing of your Personal Information.
+You have the right to withdraw your consent at any time, including objecting to your Personal Information being used for marketing or advertising purposes.
+
+We will comply with your requests in accordance with, and subject to, applicable law. For example, the Company is not required to delete your Personal Information if it has an overriding legitimate ground for retaining that information such as to prevent fraud. Please note that we are legally prohibited from carrying out requested actions in some instances, including (1) when we are unable to confirm your identity; (2) where the request is considered excessive; and (3) where doing so would adversely affect the rights or freedoms of other individuals.
+
+We Are Here to Help
+
+Please email us at support@recroom.com with the subject line "Data Subject Rights" if you would like to exercise any of the rights described above or if you have questions regarding your rights.
+
+Right to Complain
+
+You have the right to lodge a complaint regarding our collection, storage, or processing of your Personal Information with a data protection supervisory authority in the country where you live or work.
+
+9. Additional Notice for California Residents
+
+The following applies to California residents pursuant to the California Consumer Privacy Act of 2018 ("CCPA"):
+In the preceding 12 months, the Company may have disclosed the categories of Personal Information listed in Section 2 above to our service providers listed in Section 6 above for business purposes.
+In the preceding 12 months, the Company has not sold Personal Information. The Company only discloses Personal Information to service providers.
+You have the right to request that the Company disclose certain information to you about our collection and use of your Personal Information over the past 12 months. Once we receive and confirm your verifiable consumer request, we will disclose to you, to the extent retained by us:
+The categories of Personal Information we collected about you.
+The categories of sources for the Personal Information we collected about you.
+Our business or commercial purpose for collecting or selling that Personal Information.
+The categories of third parties with whom we share that Personal Information.
+The specific pieces of Personal Information we collected about you (also known as a data portability request).
+If we sold or disclosed your Personal Information for a business purpose, two separate lists disclosing: (a) sales, identifying the Personal Information categories that each category of recipient purchased; and (b) disclosures for a business purpose, identifying the Personal Information categories that each category of recipient obtained.
+You have the right to request that the Company delete any of your Personal Information that we collected from you and retained, subject to certain exceptions. Once we receive and confirm your verifiable consumer request, we will delete (and direct our service providers to delete) your Personal Information from our records, unless an exception applies. We may deny your deletion request if retaining the information is necessary for us or our service providers to:
+Complete the transaction for which we collected the Personal Information, provide the Service that you requested, take actions reasonably anticipated within the context of our ongoing business relationship with you, or otherwise perform our contract with you.
+Detect security incidents, protect against malicious, deceptive, fraudulent, or illegal activity, or prosecute those responsible for such activities.
+Debug the Services to identify and repair errors that impair existing intended functionality.
+Exercise free speech, ensure the right of another user to exercise their free speech rights, or exercise another right provided for by law.
+Comply with the California Electronic Communications Privacy Act (Cal. Penal Code § 1546 et. seq.).
+Engage in public or peer-reviewed scientific, historical, or statistical research in the public interest that adheres to all other applicable ethics and privacy laws, when the information's deletion may likely render impossible or seriously impair the research's achievement, if you previously provided informed consent.
+Enable solely internal uses that are reasonably aligned with user expectations based on your relationship with us.
+Comply with a legal obligation.
+Make other internal and lawful uses of that information that are compatible with the context in which you provided it.
+
+We will not discriminate against you for exercising any of your CCPA rights. Unless permitted by the CCPA, we will not:
+Deny you the Services.
+Charge you different prices or rates for the Services, including through granting discounts or other benefits, or imposing penalties.
+Provide you a different level or quality of the Services.
+Suggest that you may receive a different price or rate for the Services or a different level or quality of the Services.
+
+Verifiable Consumer Requests
+
+To exercise your rights described above, please email us at support@recroom.com with the subject line "CCPA". Only you, or someone legally authorized to act on your behalf, may make a verifiable consumer request related to your Personal Information. You may also make a verifiable consumer request on behalf of your Child. You may only make a verifiable consumer request for access or data portability twice within a 12-month period. The verifiable consumer request must:
+Provide sufficient information that allows us to reasonably verify you are the person about whom we collected Personal Information or an authorized representative.
+Describe your request with sufficient detail that allows us to properly understand, evaluate, and respond to it.
+
+We cannot respond to your request or provide you with Personal Information if we cannot verify your identity or authority to make the request and confirm that the Personal Information relates to you. Making a verifiable consumer request does not require you to create an account with us. We will only use Personal Information provided in a verifiable consumer request to verify your identity or authority to make the request.
+
+Response Timing and Format
+
+We endeavor to respond to a verifiable consumer request within 30 days of its receipt. If we require more time, we will inform you of the reason and extension period in writing. If you have an account with us, we will deliver our written response to that account. If you do not have an account with us, we will deliver our written response by mail or electronically, at your option.
+
+Any disclosures we provide will only cover the 12-month period preceding the receipt of verifiable consumer request. The response we provide will also explain the reasons we cannot comply with a request, if applicable.
+
+For data portability requests, we will select a format to provide your Personal Information that is readily useable and should allow you to transmit the information from one entity to another entity without hindrance.
+
+We do not charge a fee to process or respond to your verifiable consumer request unless it is excessive, repetitive, or manifestly unfounded. If we determine that the request warrants a fee, we will tell you why we made that decision and provide you with a cost estimate before completing your request.
+
+10. How will the Company notify users of changes to this Policy?
+
+The Company reserves the right to change this Policy from time to time consistent with applicable law. If we make changes to this Policy, we will notify you by revising the date at the top of this Policy, and in some cases, we may provide you with additional notice (such as adding a statement in the Game or the homepages of our Services, or sending you an email notification).
+
+In the event that any changes we make to Policy affect Children in a way that requires prior parental consent under COPPA, we will obtain such prior parental consent.
+
+11. How can someone contact the Company?
+
+If you have questions, you may email us at support@recroom.com.
+
+Creator Payment Program Rules
+
+Last Updated: May 21, 2021
+
+Below are the terms and conditions that govern use of Rec Room Inc.'s Creator Payment Program ("Rules"). These Rules are part of Rec Room Inc.'s Terms of Service, and the term "Rec Room" and "Services" shall have the meaning set out in such Terms. If you do not agree to these Rules, you may not participate in the Creator Payment Program.
+We reserve the right to modify, amend, or terminate the Creator Payment Program and/or these Rules, add, remove, or modify eligibility requirements, and change the exchange rate or required minimums for an exchange of earned Rec Tokens to U.S. Dollars, at any time and for any reason, our sole discretion. The existence of the Creator Payment Program in no way creates an obligation for us to continue the program in the future, nor does it guarantee that Rec Tokens can be exchanged now or at any future time. We reserve the right to deny a cash out payment to any user that we believe may not have met these Rules.
+
+BASIC ELIGIBILITY CRITERIA
+
+If you have a non-Junior account that has been active for at least 30 days, are 18 years of age or older, or 13-17 years of age with a parent or guardian's permission, you may be eligible to exchange earned Rec Tokens for U.S. Dollars at the then current exchange rate set by Rec Room Inc., if, and only if, you meet the following basic eligibility criteria:
+You have signed up for an account with our third party payment processing vendor, Tipaliti, met all of their registration and other criteria, and provide all necessary information to set up an account with Tipalti.
+You have earned at least 1 million Rec Tokens from other Rec Room users in exchange for access to your original User Content.
+You have a current and active subscription to Rec Room Plus.
+A verified email is associated with your Account.
+You are in compliance with the Terms and with the Code of Conduct, and have not have been suspended in the last 90 days.
+You have not previously requested to exchange earned Rec Tokens for U.S. Dollars at any time either in the prior calendar month.
+
+In addition, you understand and agree that you must meet any other eligibility requirements that we or Tipalti or our then current third party vendors may establish from time to time in our sole discretion.
+
+MINIMUM AND MAXIMUM EARNED REC TOKEN EXCHANGE AMOUNTS
+
+As of the date of the last update of these Rules, Rec Room Inc. will require exchange requests to occur in 1 million Rec Token increments, with a maximum of 25 million Rec Tokens per transaction, and only one requested exchange per month. The exchange rate as of the date of these Rules is $400 U.S. Dollars per 1 million Rec Tokens. Rec Room Inc. reserves the right to alter or amend the foregoing at any time, in its sole discretion, without posting a subsequent update to these Rules. Upon your submission of an exchange request, the balance of Rec Tokens submitted for exchange will be deducted from your account pending the approval and processing of such exchange. In the event your exchange request is denied, or is otherwise unable to be completed, such submitted balance of Rec Tokens will be restored to your account.
+Based on your Account information and status, on the requirements described in these Rules, and by applicable laws, Rec Room Inc. will make a final determination in its sole discretion as to whether you are eligible to exchange a given increment of earned Rec Tokens for U.S. Dollars.
+
+Initiating an exchange request does not guarantee that you will be able to exchange your earned Rec Tokens for U.S. Dollars. Only we have the authority and discretion to determine if you are eligible to participate in the program or if a specific request will be honored. In addition, our third party payment vendor will have requirements that you must meet to their satisfaction.
+
+TAXES, FEES AND TAX REPORTING
+
+Prior to any U.S. Dollar cash out payments for Rec Tokens being completed, you will be required to provide or file any information or documentation required by any service provider appointed by Rec Room Inc. to process cash out payments, which will generally include an IRS form W-9, among other things. Cash out payments will be reported to the IRS and to you using a form 1099.
+
+Transaction fees may be assessed on each payment (which will be deducted from any amounts that would otherwise be owed to you hereunder) by Rec Room Inc. and/or any service provider we engage to assist in administering the Creator Payment Program.
+
+You are responsible for any taxes that may be owed due to an exchange of earned Rec Tokens for U.S. Dollars. We consider any such exchanges to be payments for services you have provided. You are responsible for ensuring that all payments received, if any, are reported to the proper taxing authorities. Rec Room Inc. shall bear no responsibility for withholding or paying the tax obligations of any user, nor shall Rec Room Inc. be held liable for any failure by a user to timely pay any tax obligations arising from participation in the Creator Payment Program.
+
+Video Partner Program Rules
+
+Last Updated: November 3, 2021
+
+Below are the terms and conditions (collectively, these "Rules") that govern your use of Rec Room Inc.'s ("we", "us" or "our") Video Partner Program (the "Program"), in addition to the Program guidelines. These Rules are part of our Terms of Service. The terms "Rec Room" and "Services" are each defined in our Terms of Service, and "Services" includes the Program. If you do not agree to these Rules, you may not participate in the Program. We reserve the right to modify, amend, or terminate the Program, these Rules, or Program guidelines, and add, remove, or modify eligibility requirements, at any time and for any reason, at our sole discretion. The existence of the Program in no way creates an obligation for us to continue the Program in the future.
+
+BASIC ELIGIBILITY CRITERIA
+
+If you have a non-Junior account, are 18 years of age or older, or 13-17 years of age with a parent or guardian's permission, you may be eligible to participate in the Program if, and only if, you meet the following basic eligibility criteria:
+You have signed up for an account with our third party payment processing vendor, Tipalti, met all of its registration and other criteria, and provided all necessary information to set up an account with Tipalti;
+You have earned at least $50.00 USD from other Rec Room users choosing to support you by clicking on your profile's "Support" button in Rec Room or by entering your partner code in Rec Room;
+A verified email is associated with your Rec Room account;
+You are in compliance with our Terms of Service and Code of Conduct, and have not have been suspended in the last 90 days; and
+You understand and agree that you must meet any other eligibility requirements that we or Tipalti may establish from time to time in our sole discretion.
+
+THE PROGRAM
+
+After applying to the Program and subject to your eligibility described in Basic Eligibility Criteria section above, we may select you to participate in the Program, at our sole discretion. If you are selected to participate in the Program, we will provide you with a code to distribute through your videos to other users of Rec Room (the "Code"). We retain the right to terminate your participation in the Program at any time in our sole discretion, including for your violations of these Rules, the Program guidelines, or our Terms of Service or Code of Conduct.
+
+CONTINGENT REVENUE SHARE
+
+When other users of Rec Room enter the Code or choose to support you by clicking on your profile's "Support" button in Rec Room (collectively, "Supporting Users"), we agree to pay you through Tipalti ten percent (10%) of Net Revenue (defined below) of such Supporting Users. We make no commitment whatsoever with respect to Net Revenue to be earned from the Program. "Net Revenue"; means all revenue actually received in cash by us from the sales of in-app purchases of Supporting Users who entered the Code within the previous ninety (90) days, less the sum of (i) added tax and any similar consumption or sales taxes in the world; (ii) applicable platform and distribution fees and costs; (iii) valid refunds, returns, exchanges, or chargebacks, or charges relating to any fraudulent or illegal activity; and (iv) transaction fees, bank transfer, or conversion costs or other charges.
+
+You may cash out your Net Revenue share by logging into your Rec Room account at rec.net and satisfying the below requirements:
+
+i. You have at least $50.00 USD in your account;
+
+ii. You are cashing out $10,000.00 USD or less;
+
+iii. You have not cashed out yet this calendar month; and
+
+iv. You have not violated these Rules, the Program guidelines, or our Terms of Service or Code of Conduct, as determined by us in our sole discretion.
+
+INDEPENDENT CONTRACTOR AND TAXES
+
+We consider you are an independent contractor with respect to the Program, and any such payments in connection with the Program to be for services provided. Nothing in connection with the Program will be deemed to establish a partnership, joint venture, association, or employment relationship between us and you. Prior to any payment in connection with the Program, you will be required to provide or file any information or documentation required by us or Tipalti to process such payment (which will generally include an IRS form W-9). You are responsible for any taxes that may be owed in connection with such payments, except for our income taxes. You are also responsible for ensuring that all payments received are reported to the proper taxing authorities. We will bear no responsibility for withholding or paying your tax obligations, nor will we be held liable for failure by you to pay any tax obligations arising from participation in the Program in a timely manner.
