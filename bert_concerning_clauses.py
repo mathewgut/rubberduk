@@ -52,6 +52,7 @@ from torch import nn
 from torch.optim import AdamW
 import re
 from clause_audit import audit_concerning_clauses
+from data_set.py import train_data
 # this was to limit cuda ram usage, but I am having a lot of issues getting it to set max vram, so its disabled for now
 #import os
 
