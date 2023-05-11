@@ -5,20 +5,27 @@ import torch
 # torch shtuff
 device = torch.device('cpu')
 
+### XLNET Tokenizer and Model
+xlnet_audit = 'xlnet-base-cased'
+tokenizer_audit = XLNetTokenizer.from_pretrained(xlnet_audit, truncation=True, max_length=512)
+audit_model = XLNetForSequenceClassification.from_pretrained(xlnet_audit, num_labels=2)
 
 
+
+### Bert Tokenizer and Model ###
+"""
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-#model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
 # model configuration, change the directory to just a name to create a new folder for a new model (eg.config = BertConfig.from_json_file("New Model")) 
 config = BertConfig.from_json_file("Model Data\\config.json")
 
 # Initialize the model with the configuration
-model = BertForSequenceClassification(config)
+#model = BertForSequenceClassification(config)
 
 # Load the pre-trained weights
 # Only use if a pre trained model already exists. The weights are the importance of certain attributes it finds in a neural network.
-model.load_state_dict(torch.load("Model Data\\pytorch_model.bin"))
-
+#model.load_state_dict(torch.load("Model Data\\pytorch_model.bin"))
+"""
 concerning_list = [
         "We may collect and use your personal information for marketing purposes.",
         "We reserve the right to share your personal information with third parties.",
@@ -500,11 +507,11 @@ train_data = []
 
 # encodes the clauses for bert to tokenize and evaluate easier
 for clause in concerning_list:
-    encoded_clause = tokenizer.encode_plus(clause, add_special_tokens=True, max_length=512, truncation=True, padding='max_length', return_tensors='pt')
+    encoded_clause = tokenizer_audit.encode_plus(clause, add_special_tokens=True, max_length=512, truncation=True, padding='max_length', return_tensors='pt')
     train_data.append((encoded_clause['input_ids'], encoded_clause['attention_mask'], torch.tensor(1)))
 
 for clause in not_concerning:
-    encoded_clause = tokenizer.encode_plus(clause, add_special_tokens=True, max_length=512, truncation=True, padding='max_length', return_tensors='pt')
+    encoded_clause = tokenizer_audit.encode_plus(clause, add_special_tokens=True, max_length=512, truncation=True, padding='max_length', return_tensors='pt')
     train_data.append((encoded_clause['input_ids'], encoded_clause['attention_mask'], torch.tensor(0)))
 
 # creates a 1 demensional tensor (a series of vectors) to pass in to torch (essentially how we are training the bert model)
