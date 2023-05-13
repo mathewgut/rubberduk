@@ -42,7 +42,7 @@ This code is very complicated and very hard to understand without context. Give 
 
 
 import torch
-from transformers import BertTokenizer, BertForSequenceClassification, BertConfig, BertModel, pipeline, XLNetTokenizer, XLNetForSequenceClassification
+from transformers import BertTokenizer, BertForSequenceClassification, BertConfig, BertModel, pipeline, XLNetTokenizer, XLNetForSequenceClassification, XLNetConfig
 import time
 import random
 from torch.utils.data import DataLoader, Dataset
@@ -51,28 +51,29 @@ import numpy
 from torch import nn
 from torch.optim import AdamW
 import re
-from clause_audit import audit_concerning_clauses
 from data_set import train_data, concerning_list, not_concerning
-from clause_audit import audit_model, tokenizer_audit
 # this was to limit cuda ram usage, but I am having a lot of issues getting it to set max vram, so its disabled for now
 #import os
+xlnet_audit = 'xlnet-base-cased'
+
+### Definitions ###
+
+
+
 
 #os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:5000"
-
-
-
 time_current = time.asctime(time.localtime(time.time()))
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 #model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
 # model configuration, change the directory to just a name to create a new folder for a new model (eg.config = BertConfig.from_json_file("New Model")) 
-config = BertConfig.from_json_file("Model Data\\config.json")
-
+config = BertConfig.from_json_file("clause_extract_model\\config.json")
+audit_model = XLNetForSequenceClassification.from_pretrained(xlnet_audit, num_labels=2)
 # Initialize the model with the configuration
 model = BertForSequenceClassification(config)
 
 # Load the pre-trained weights
 # Only use if a pre trained model already exists. The weights are the importance of certain attributes it finds in a neural network.
-model.load_state_dict(torch.load("Model Data\\pytorch_model.bin"))
+model.load_state_dict(torch.load("clause_extract_model\\pytorch_model.bin"))
 
 twitter_tos = open("twitter_tos.txt", "r", encoding='utf-8')
 text2 = twitter_tos.read()
@@ -92,8 +93,8 @@ epic_tos = open("epic_tos.txt", "r", encoding='utf-8')
 text8 = epic_tos.read()
 steam_tos = open("steam_tos.txt", "r", encoding='utf-8')
 text9 = steam_tos.read()
-tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
-text10 = tiktok_tos.read()
+#tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
+#text10 = tiktok_tos.read()
 playstation_tos = open("playstation_tos.txt", "r", encoding='utf-8')
 text11 = playstation_tos.read()
 mississauga_tos = open("mississauga_tos.txt", "r", encoding='utf-8')
@@ -103,7 +104,10 @@ text13 = ea_tos.read()
 betterhelp_tos = open("betterhelp_tos.txt", "r", encoding='utf-8')
 text14 = betterhelp_tos.read()
 
-tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14]
+tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
+                  text11, text12, text13, text14]
+tos_call_text = random.choice(tos_call_list)
+# Randomly select a TOS text
 tos_call_text = random.choice(tos_call_list)
 device = torch.device('cpu')  # This is set to just CPU. you can change it by putting GPU instead. The GPU will allow for immensley faster training, but there is no current way to limit VRAM (at least that works)
 
@@ -240,17 +244,14 @@ def extract_concerning_clauses(tos_text, window_size=3):
 
     return concerning_clauses
 
-# Randomly select a TOS text
-tos_call_text = random.choice(tos_call_list)
 
-# Example usage
-concerning_clauses = extract_concerning_clauses(tos_call_text, window_size=3)
-for clause in concerning_clauses:
-    print(clause)
+# Initialize concerning clauses extraction and print found clauses
+def concerning_clauses_run():
+    concerning_clauses = extract_concerning_clauses(tos_call_text, window_size=3)
+    for clause in concerning_clauses:
+        print(clause)
 
-
-
-
+# Initalize testing data and tokenize it
 eval_data = []
 for clause in concerning_list:
     encoded_clause = tokenizer.encode_plus(clause, add_special_tokens=True, max_length=512, truncation=True, padding='max_length', return_tensors='pt')
@@ -301,7 +302,7 @@ print("F1 Score:", f1_score)
 
 
 
-results = audit_concerning_clauses(concerning_clauses)
+#results = audit_concerning_clauses(concerning_clauses)
 # Print the audit results
 for clause, predicted_label in results:
     if predicted_label == 1:
