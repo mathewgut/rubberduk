@@ -503,6 +503,9 @@ not_concerning = [
 
     ]
 
+
+#ligma
+
 train_data = []
 
 # encodes the clauses for bert to tokenize and evaluate easier
