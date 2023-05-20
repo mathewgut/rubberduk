@@ -1,4 +1,4 @@
-from transformers import XLNetTokenizer, XLNetForSequenceClassification
+from transformers import XLNetTokenizer, XLNetForSequenceClassification, XLNetConfig
 from torch.utils.data import DataLoader, Dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import numpy
@@ -10,6 +10,7 @@ from bert_concerning_clauses import CustomDataset, train_data
 xlnet_audit = 'xlnet-base-cased'
 tokenizer_audit = XLNetTokenizer.from_pretrained(xlnet_audit, truncation=True, max_length=512)
 audit_model = XLNetForSequenceClassification.from_pretrained(xlnet_audit, num_labels=2)
+from bert_concerning_clauses import concerning_clauses, not_concerning, extract_concerning_clauses, tos_call_text, concerning_clauses_run
 
 
 device = torch.device('cpu')
@@ -58,8 +59,15 @@ def fine_tune_audit(train_data, num_epochs=4, batch_size=32, learning_rate=5e-5)
         average_loss = total_loss / (step + 1)
         print(f"Epoch {epoch + 1} Average Loss: {average_loss:.4f}")
 
+<<<<<<< HEAD:clause_audit (do not use).py
 fine_tune_audit(train_data, num_epochs=5, batch_size=32, learning_rate=5e-5)
+=======
+#fine_tune_audit(train_data, num_epochs=1, batch_size=32, learning_rate=5e-5)
+>>>>>>> 5ca2c0a1cf5887f50bf4df9382935dd5339d2b79:clause_audit
 audit_model.save_pretrained("audit_model_xlnet")
+config = XLNetConfig.from_json_file("audit_model_xlnet\\config.json")
+audit_model = XLNetForSequenceClassification(config)
+audit_model.load_state_dict(torch.load("audit_model_xlnet\\pytorch_model.bin"))
 
 def audit_concerning_clauses(concerning_clauses):
     context = "data privacy, data selling, security, cross site tracking/monitoring, data rights"
@@ -84,4 +92,22 @@ def audit_concerning_clauses(concerning_clauses):
         audit_results.append((clause, predicted_label))
 
     print(audit_results)
+<<<<<<< HEAD:clause_audit (do not use).py
     return audit_results
+=======
+    return audit_results
+
+
+### Ask user if they wish to save model###
+print("Would you like to save the model?")
+save_model_input = input("[y/n]")
+
+if save_model_input == "y":
+    audit_model.save_pretrained("audit_model_xlnet")
+elif save_model_input == "n":
+    pass
+else:
+    save_model_input
+
+concerning_clauses_run()
+>>>>>>> 5ca2c0a1cf5887f50bf4df9382935dd5339d2b79:clause_audit

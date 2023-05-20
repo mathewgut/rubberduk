@@ -35,7 +35,11 @@
     }
   },
   "torch_dtype": "float32",
+<<<<<<< HEAD
   "transformers_version": "4.28.1",
+=======
+  "transformers_version": "4.29.0",
+>>>>>>> 5ca2c0a1cf5887f50bf4df9382935dd5339d2b79
   "untie_r": true,
   "use_mems_eval": true,
   "use_mems_train": false,
