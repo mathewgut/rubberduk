@@ -1,3 +1,5 @@
+## this model is extemely computationally demanding. 
+
 from transformers import XLNetTokenizer, XLNetForSequenceClassification, XLNetConfig
 from torch.utils.data import DataLoader, Dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
