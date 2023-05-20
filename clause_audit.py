@@ -7,10 +7,14 @@ from torch.optim import AdamW
 import torch
 #from bert_concerning_clauses import CustomDataset, train_data
 from data_set import train_data
-xlnet_audit = 'xlnet-base-cased'
-tokenizer_audit = XLNetTokenizer.from_pretrained(xlnet_audit, truncation=True, max_length=512)
-audit_model = XLNetForSequenceClassification.from_pretrained(xlnet_audit, num_labels=2)
-from bert_concerning_clauses import concerning_clauses, not_concerning, extract_concerning_clauses, tos_call_text, concerning_clauses_run
+#from bert_concerning_clauses import not_concerning, extract_concerning_clauses, tos_call_text
+
+audit_model = 'xlnet-base-cased'
+tokenizer_audit = XLNetTokenizer.from_pretrained(audit_model, truncation=True, max_length=512)
+#audit_model = XLNetForSequenceClassification.from_pretrained(xlnet_audit, num_labels=2)
+config = XLNetConfig.from_json_file("audit_model_xlnet\\config.json")
+audit_model = XLNetForSequenceClassification(config)
+audit_model.load_state_dict(torch.load("audit_model_xlnet\\pytorch_model.bin"))
 
 
 device = torch.device('cpu')
@@ -77,8 +81,11 @@ config = XLNetConfig.from_json_file("audit_model_xlnet\\config.json")
 audit_model = XLNetForSequenceClassification(config)
 audit_model.load_state_dict(torch.load("audit_model_xlnet\\pytorch_model.bin"))
 
+
+
 def audit_concerning_clauses(concerning_clauses):
     context = "data privacy, data selling, security, cross site tracking/monitoring, data rights"
+    audit_model.to(device)
     audit_model.eval()
     audit_results = []
 
@@ -102,6 +109,7 @@ def audit_concerning_clauses(concerning_clauses):
     print(audit_results)
     return audit_results
 
+#audit_concerning_clauses(extract_concerning_clauses(tos_call_text, window_size=3))
 
 ### Ask user if they wish to save model###
 print("Would you like to save the model?")
@@ -114,4 +122,3 @@ elif save_model_input == "n":
 else:
     save_model_input
 
-concerning_clauses_run()

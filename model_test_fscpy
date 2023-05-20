@@ -1,0 +1,132 @@
+"""
+
+The following code was an attempt at Few Shot Classification. For which we provide a substantially large pretrained model with a small amount of examples with class tags associated, and use its large amount of
+previous training to figure out how it applies to unseen data. It does not work. Currently, there is an issue with batch size.
+
+"""
+
+
+
+from transformers import pipeline, BartForSequenceClassification, BartTokenizer
+import random
+import torch
+import torch.nn.functional as F
+
+twitter_tos = open("twitter_tos.txt", "r", encoding='utf-8')
+text2 = twitter_tos.read()
+facebook_tos = open("facebook_tos.txt", "r", encoding='utf-8')
+text1 = facebook_tos.readlines()
+reddit_tos = open("reddit_tos.txt", "r", encoding='utf-8')
+text3 = reddit_tos.read()
+youtube_tos = open("youtube_tos.txt", "r", encoding='utf-8')
+text4 = youtube_tos.read()
+linkedin_tos = open("linkedin_tos.txt", "r", encoding='utf-8')
+text5 = linkedin_tos.read()
+nytimes_tos = open("nytimes_tos.txt", "r", encoding='utf-8')
+text6 = nytimes_tos.read()
+openai_tos = open("openai_tos.txt", "r", encoding='utf-8')
+text7 = openai_tos.read()
+epic_tos = open("epic_tos.txt", "r", encoding='utf-8')
+text8 = epic_tos.read()
+steam_tos = open("steam_tos.txt", "r", encoding='utf-8')
+text9 = steam_tos.read()
+#tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
+#text10 = tiktok_tos.read()
+playstation_tos = open("playstation_tos.txt", "r", encoding='utf-8')
+text11 = playstation_tos.read()
+mississauga_tos = open("mississauga_tos.txt", "r", encoding='utf-8')
+text12 = mississauga_tos.read()
+ea_tos = open("ea_tos.txt", "r", encoding='utf-8')
+text13 = ea_tos.read()
+betterhelp_tos = open("betterhelp_tos.txt", "r", encoding='utf-8')
+text14 = betterhelp_tos.read()
+device = torch.device("cpu")
+tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
+                  text11, text12, text13, text14]
+tos_call_text = random.choice(tos_call_list)
+
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+
+sequence_to_classify = "one day I will see the world"
+candidate_labels = ['concerning legal clause', 'concerning privacy clause', 'concerning data clause', 'not concerning clause', 'sub-heading']
+
+# Specify batch size (of lines) and window size (lines of context)
+batch_size = 4
+window_size = 2
+
+# Instantiate the BartForSequenceClassification model
+model = BartForSequenceClassification.from_pretrained("facebook/bart-large-mnli")
+tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-mnli")
+
+# Define the few-shot examples
+few_shot_examples = [
+    ("By using our website, you consent to the use of third-party cookies for targeted advertising purposes, allowing advertisers to track your online activities across multiple websites.", "concerning"),
+    ("We will handle your personal data in accordance with applicable data protection laws and regulations, and we will obtain your explicit consent before using it for any purposes other than providing our services.", "non-concerning"),
+    ("By accepting these terms, you grant us an irrevocable, worldwide, royalty-free license to collect, use, and disclose your personal data for marketing purposes.", "concerning"),
+    ("We use anonymized and aggregated user data to analyze trends and improve our services, ensuring that no personally identifiable information is disclosed to third parties.", "non-concerning"),
+    ("We track your IP address and collect precise location data to monitor your movements and provide location-based services, which may involve sharing this information with third-party advertisers for targeted marketing.", "concerning"),
+    ("We anonymize and aggregate IP addresses and location data to analyze user trends and improve our services, ensuring that no personally identifiable information is associated with this data.", "non-concerning"),
+    ("We may share your personal data, including IP address and browsing history, with third-party marketing companies for the purpose of targeted advertising and profiling.", "concerning"),
+    ("We adhere to strict data protection regulations and will not disclose your personal information, including IP address and browsing history, to any third parties without your explicit consent.", "non-concerning"),
+    ("We retain your personal data indefinitely, even after account termination, to meet legal obligations and for potential future use", "concerning"),
+    ("We employ industry-standard security measures, such as encryption and firewalls, to protect your personal data from unauthorized access.", "non-concerning")
+    # Add more labeled examples here
+]
+
+# Encode the few-shot examples
+encoded_examples = tokenizer(list(example[0] for example in few_shot_examples), truncation=True, padding=True, return_tensors="pt")
+
+# Iterate over the lines and classify them
+results_dict = {}
+lines = text1  # or replace `text1` with `tos_call_text` if needed
+total_lines = len(lines)
+
+for i in range(0, total_lines, batch_size):
+    start_index = i
+    end_index = min(i + batch_size, total_lines)
+
+    # Prepare the batch of lines
+    batch_lines = lines[start_index:end_index]
+
+    # Tokenize and encode the batch of lines
+    inputs = tokenizer(batch_lines, truncation=True, padding=True, return_tensors="pt", max_length=512, add_special_tokens=True)
+
+    # Perform classification using the few-shot examples as input
+    batch_size = inputs['input_ids'].shape[0]  # Get batch size from input tensors
+    inputs['labels'] = torch.tensor([0] * batch_size)  # Placeholder labels with the batch size
+    inputs['labels'] = inputs['labels'][:end_index - start_index]  # Adjust labels batch size to match the current batch
+    inputs['input_ids'] = inputs['input_ids'].to(device)
+    inputs['attention_mask'] = inputs['attention_mask'].to(device)
+
+    # Update with encoded few-shot examples
+    inputs['labels'] = encoded_examples['input_ids']
+    
+    pad_size = inputs['input_ids'].shape[1] - encoded_examples['input_ids'].shape[1]
+    encoded_attention_mask = F.pad(encoded_examples['attention_mask'], (0, pad_size), value=0)
+    inputs['attention_mask'] = encoded_attention_mask.expand(end_index - start_index, -1, -1)
+
+
+
+    outputs = model(**inputs)
+
+    # Get the predicted labels for the batch
+    predicted_labels = [model.config.id2label[label_id] for label_id in outputs.logits.argmax(dim=1).tolist()]
+
+    # Store the results for the batch
+    for line, label in zip(batch_lines, predicted_labels):
+        results_dict[line] = label
+
+    # Print the results for the current batch
+    for line, label in zip(batch_lines, predicted_labels):
+        print("############")
+        print(line)
+        print("Predicted Label:", label)
+        print("############")
+
+# Print the final results
+print("Total lines classified:", len(results_dict))
+for line, label in results_dict.items():
+    print("############")
+    print(line)
+    print("Predicted Label:", label)
+    print("############")

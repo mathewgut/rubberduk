@@ -52,6 +52,7 @@ from torch import nn
 from torch.optim import AdamW
 import re
 from data_set import train_data, concerning_list, not_concerning
+from clause_audit import audit_concerning_clauses
 # this was to limit cuda ram usage, but I am having a lot of issues getting it to set max vram, so its disabled for now
 #import os
 xlnet_audit = 'xlnet-base-cased'
@@ -106,8 +107,6 @@ text14 = betterhelp_tos.read()
 
 tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
                   text11, text12, text13, text14]
-tos_call_text = random.choice(tos_call_list)
-# Randomly select a TOS text
 tos_call_text = random.choice(tos_call_list)
 device = torch.device('cpu')  # This is set to just CPU. you can change it by putting GPU instead. The GPU will allow for immensley faster training, but there is no current way to limit VRAM (at least that works)
 
@@ -210,7 +209,6 @@ def extract_concerning_clauses(tos_text, window_size=3):
     # Split tos_text into sentences or lines
     sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', tos_text)
 
-    model.to(device)
     model.eval()
 
     concerning_clauses = []
@@ -241,8 +239,14 @@ def extract_concerning_clauses(tos_text, window_size=3):
         if predicted_class.item() == 1:
             clause = sentences[i].strip()
             concerning_clauses.append(clause)
-
-    return concerning_clauses
+    print("concerning clauses")
+    print("###################")
+    print(concerning_clauses)
+    print("###################")
+    print("concerning clauses")
+    print("###################")
+    audit_concerning_clauses(concerning_clauses)
+    print("###################")
 
 
 # Initialize concerning clauses extraction and print found clauses
@@ -268,10 +272,12 @@ eval_dataloader = DataLoader(eval_dataset, batch_size=8, shuffle=True)
 f1_score = evaluate(model, eval_dataloader)
 print("F1 Score:", f1_score)
 
-model.save_pretrained("Model Data")
+extract_concerning_clauses(tos_call_text, window_size=3)
+
+#model.save_pretrained("Model Data")
 
 ##### XLNET ######
-
+"""
 
 def evaluate_audit(audit_model, dataloader):
     audit_model.eval()
@@ -311,8 +317,10 @@ for clause, predicted_label in results:
         print(f"Not concerning clause: {clause}")
 
 
+"""
 
 # Close the file handles
-for tos_file in [twitter_tos, facebook_tos, reddit_tos, youtube_tos, linkedin_tos, nytimes_tos, openai_tos, epic_tos, steam_tos, tiktok_tos]:
+for tos_file in [twitter_tos, facebook_tos, reddit_tos, youtube_tos, linkedin_tos, nytimes_tos, openai_tos, epic_tos, steam_tos, #tiktok_tos
+                 ]:
     tos_file.close()
 
