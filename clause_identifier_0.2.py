@@ -100,16 +100,57 @@ ea_tos = open("ea_tos.txt", "r", encoding='utf-8')
 text13 = ea_tos.readlines()
 betterhelp_tos = open("betterhelp_tos.txt", "r", encoding='utf-8')
 text14 = betterhelp_tos.readlines()
+tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
+text15 = tiktok_tos.readlines()
+netflix_tos = open("netflix_tos.txt", "r", encoding='utf-8')
+text16 = netflix_tos.readlines()
 
 
 tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
-                  text11, text12, text13, text14]
+                  text11, text12, text13, text14, text15, text16]
 # assigning a random position based on a range from 0 to the length of the list
 tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 
 
 # what the model says after finishing a classification in its entirety
 quacks = "Thanks for playing, quack"
+summary_text_list = []
+from transformers import pipeline
+
+
+def smart_summarize(text):
+    # Initialize the BART summarization pipeline
+    summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+
+    # Check the length of the input text
+    total_length = len(text)
+
+    if total_length <= 1024:
+        # Input text is within the character limit, summarize it directly
+        summary = summarizer(text, max_length=500)[0]['summary_text']
+        return summary
+
+    else:
+        # Calculate the number of sections needed
+        section_length = 512  # Adjust the section length as desired
+        overlap = 128  # Adjust the overlap length as desired
+
+        # Create overlapping sections using a sliding window
+        sections = []
+        start = 0
+        while start < total_length:
+            end = min(start + section_length, total_length)
+            sections.append(text[start:end])
+            start += section_length - overlap
+
+        # Summarize each section
+        summaries = [summarizer(section)[0]['summary_text'] for section in sections]
+
+        # Concatenate the summaries
+        summary = ' '.join(summaries)
+
+        return summary
+
 
 # the following function is used inside of summarize_concerns for producing a summary of the text
 def sentence_similarity(sent1, sent2):
@@ -202,7 +243,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                         # clear loop counter
                         counter = 0
                     print(y)
-                    #unnecessary, but funny
+                    # unnecessary, but funny
                     zoo_wee_mama = classifier(y, candidate_labels, multi_label=False)
                     # add current line as a key to the results dict and set the confidence scores as the value
                     results.update({y: zoo_wee_mama['scores']})
@@ -342,10 +383,13 @@ classes_general = ['Concerning Clause for User','Non-Concerning Clause for User'
 likely_found = fusion_model_general(5,classes_general, file_general, 0.7,0.6)
 text_for_summary = ",".join(likely_found)
 
-#summarizer = pipeline("summarization", model="google/pegasus-cnn_dailymail")
+summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
     #print(summarizer(text_for_summary, max_length=2048, min_length=30, do_sample=False))
 try:
-    summarize_concerns(text_for_summary)
+    summary_text = smart_summarize(text_for_summary)
+    print(summary_text)
+    summary_text_list.append(summary_text)
+    #summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -357,9 +401,12 @@ file_data = open("output_data.txt", "w")
 
 likely_found = fusion_model_general(5, classes_data, file_data,0.8,0.5)
 text_for_summary = ",".join(likely_found)
-#summarizer = pipeline("summarization", model="google/pegasus-cnn_dailymail")
+summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 try:
-    summarize_concerns(text_for_summary)
+    summary_text = smart_summarize(text_for_summary)
+    print(summary_text)
+    summary_text_list.append(summary_text)
+    #summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -371,9 +418,12 @@ file_security = open("output_security.txt", "w")
 
 likely_found = fusion_model_general(5,classes_security,file_security,0.75,0.5)
 text_for_summary = ",".join(likely_found)
-#summarizer = pipeline("summarization", model="google/pegasus-cnn_dailymail")
+summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 try:
-    summarize_concerns(text_for_summary)
+    summary_text = smart_summarize(text_for_summary)
+    print(summary_text)
+    summary_text_list.append(summary_text)
+    #summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -385,11 +435,40 @@ file_privacy = open("output_privacy.txt", "w")
 
 likely_found = fusion_model_general(5, classes_privacy, file_privacy,0.8,0.5)
 text_for_summary = ",".join(likely_found)
-#summarizer = pipeline("summarization", model="google/pegasus-cnn_dailymail")
+summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+
 try:
-    summarize_concerns(text_for_summary)
+    summary_text = smart_summarize(text_for_summary)
+    print(summary_text)
+    summary_text_list.append(summary_text)
+    #summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
 
-                   
+### Legal Model Fusion
+classes_privacy = ['Potential Legal Concern','No Legal Concern ']
+file_privacy = open("output_legal.txt", "w")
+likely_found = fusion_model_general(5, classes_privacy, file_privacy,0.8,0.5)
+text_for_summary = ",".join(likely_found)
+
+try:
+    summary_text = smart_summarize(text_for_summary)
+    print(summary_text)
+    summary_text_list.append(summary_text)
+
+    #summarize_concerns(text_for_summary)
+except:
+    print("Summary fail")
+print("##############################")
+
+
+summary_output = open("output_summary.txt", "w")
+print(summary_text_list)
+char_count = 0
+for x in summary_text_list:
+    summary_output.write(str(x))
+    for y in x:
+        char_count += 1
+print(char_count)
+summary_output.write("Token Count: ", char_count)
