@@ -4,6 +4,7 @@ import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from clause_expain import analyze
 import numpy as np
 import networkx as nx
 nltk.download('punkt')
@@ -366,7 +367,6 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
     try:
         for x in shared_likely:
             output_file.writelines(str(x) + "\n")
-        output_file.close()
     except Exception as e:
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
@@ -379,12 +379,20 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
 ### General Model Fusion
 file_general = open("output_general.txt", "w")
 classes_general = ['Concerning Clause for User','Non-Concerning Clause for User']
+analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_general[0]
 
 likely_found = fusion_model_general(5,classes_general, file_general, 0.7,0.6)
 text_for_summary = ",".join(likely_found)
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
     #print(summarizer(text_for_summary, max_length=2048, min_length=30, do_sample=False))
+
+explained_text = []
+for x in likely_found:
+    analyze_text = analyze(x,analyze_prompt)
+    explained_text.append(analyze_text)
+file_general.write(str(explained_text))
+file_general.close()
 try:
     summary_text = smart_summarize(text_for_summary)
     print(summary_text)
@@ -398,12 +406,20 @@ print("##############################")
 ### Data Model Fusion
 classes_data = ['Potential Data Use Concern','No Data Use Concern']
 file_data = open("output_data.txt", "w")
+analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_data[0]
 
 likely_found = fusion_model_general(5, classes_data, file_data,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+explained_text = []
+for x in likely_found:
+    analyze_text = analyze(x,analyze_prompt)
+    explained_text.append(analyze_text)
+file_data.write(str(explained_text))
+file_data.close()
+
 try:
-    summary_text = smart_summarize(text_for_summary)
+    summary_text = smart_summarize(text_for_summary) 
     print(summary_text)
     summary_text_list.append(summary_text)
     #summarize_concerns(text_for_summary)
@@ -415,10 +431,18 @@ print("##############################")
 ### Security Model Fusion
 classes_security = ['Potential Security Concern for User','No Security Concern for User']
 file_security = open("output_security.txt", "w")
+analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_security[0]
 
 likely_found = fusion_model_general(5,classes_security,file_security,0.75,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+explained_text = []
+for x in likely_found:
+    analyze_text = analyze(x,analyze_prompt)
+    explained_text.append(analyze_text)
+file_security.write(str(explained_text))
+file_security.close()
+
 try:
     summary_text = smart_summarize(text_for_summary)
     print(summary_text)
@@ -432,10 +456,17 @@ print("##############################")
 ### Privacy Model Fusion
 classes_privacy = ['Potential Privacy Concern','No Privacy Concern ']
 file_privacy = open("output_privacy.txt", "w")
+analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
 
 likely_found = fusion_model_general(5, classes_privacy, file_privacy,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+explained_text = []
+for x in likely_found:
+    analyze_text = analyze(x,analyze_prompt)
+    explained_text.append(analyze_text)
+file_privacy.write(str(explained_text))
+file_privacy.close()
 
 try:
     summary_text = smart_summarize(text_for_summary)
@@ -447,9 +478,18 @@ except:
 print("##############################")
 
 ### Legal Model Fusion
-classes_privacy = ['Potential Legal Concern','No Legal Concern ']
-file_privacy = open("output_legal.txt", "w")
-likely_found = fusion_model_general(5, classes_privacy, file_privacy,0.8,0.5)
+classes_legal = ['Potential Legal Concern','No Legal Concern ']
+file_legal = open("output_legal.txt", "w")
+analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
+
+likely_found = fusion_model_general(5, classes_legal, file_legal,0.8,0.5)
+explained_text = []
+for x in likely_found:
+    analyze_text = analyze(x,analyze_prompt)
+    explained_text.append(analyze_text)
+file_legal.write(str(explained_text))
+file_legal.close()
+
 text_for_summary = ",".join(likely_found)
 
 try:
@@ -471,4 +511,5 @@ for x in summary_text_list:
     for y in x:
         char_count += 1
 print(char_count)
-summary_output.write("Token Count: ", char_count)
+summary_output.write(str("Token Count: ", char_count))
+

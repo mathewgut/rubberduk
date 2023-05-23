@@ -1,16 +1,17 @@
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
-from cla
-
-model_name = "deepset/roberta-base-squad2"
 
 # a) Get predictions
-nlp = pipeline('question-answering', model=model_name, tokenizer=model_name)
-QA_input = {
-    'question': 'Why is model conversion important?',
-    'context': 'The option to convert models between FARM and transformers gives freedom to the user and let people easily switch between frameworks.'
-}
-res = nlp(QA_input)
 
-# b) Load model & tokenizer
-model = AutoModelForQuestionAnswering.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+
+def analyze(context, question):
+    model_name = "bert-large-uncased-whole-word-masking-finetuned-squad"
+    model = AutoModelForQuestionAnswering.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    nlp = pipeline('question-answering', model=model, tokenizer=tokenizer)
+    input_dict = {'context': context, 'question': question}
+    result = nlp(input_dict)
+    if result['answer']:
+        return result
+    else:
+        return None
