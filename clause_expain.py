@@ -1,5 +1,5 @@
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
-from clause_identifier_0.2 import fusion_model_general
+from cla
 
 model_name = "deepset/roberta-base-squad2"
 
