@@ -9,6 +9,15 @@ import numpy as np
 import networkx as nx
 nltk.download('punkt')
 nltk.download('stopwords')
+from transformers import pipeline
+
+model_name = 't5-base'
+generator = pipeline('text-generation', model=model_name, tokenizer=model_name)
+
+context = "Your input context goes here"
+prompt = "generate: Why is this clause concerning? context: " + context
+
+explanation = generator(prompt, max_length=100)[0]['generated_text']
 """
 
 HOW THIS CODE WORKS:
@@ -153,50 +162,6 @@ def smart_summarize(text):
         return summary
 
 
-# the following function is used inside of summarize_concerns for producing a summary of the text
-def sentence_similarity(sent1, sent2):
-    words1 = word_tokenize(sent1)
-    words2 = word_tokenize(sent2)
-    words1 = set(words1)
-    words2 = set(words2)
-    intersection = words1.intersection(words2)
-    union = words1.union(words2)
-    similarity = len(intersection) / len(union)
-    return similarity
-
-# summarizes the list of concerning clauses. doesnt work atm, these summary functions were made by GPT, go figure
-def summarize_concerns(text, summary_length=5):
-    # Preprocess the text
-    stop_words = set(stopwords.words('english'))
-    porter = PorterStemmer()
-    sentences = sent_tokenize(text)
-    preprocessed_sentences = []
-    for sentence in sentences:
-        words = word_tokenize(sentence)
-        words = [porter.stem(word.lower()) for word in words if word.isalpha() and word.lower() not in stop_words]
-        preprocessed_sentences.append(' '.join(words))
-
-    # Create a similarity matrix between sentences
-    similarity_matrix = np.zeros((len(preprocessed_sentences), len(preprocessed_sentences)))
-    for i in range(len(preprocessed_sentences)):
-        for j in range(len(preprocessed_sentences)):
-            if i != j:
-                similarity_matrix[i][j] = sentence_similarity(preprocessed_sentences[i], preprocessed_sentences[j])
-
-    # Apply PageRank algorithm to get sentence scores
-    scores = nx.pagerank(nx.from_numpy_array(similarity_matrix))
-
-    # Sort the sentences by their scores in descending order
-    ranked_sentences = sorted(((scores[i], sentence) for i, sentence in enumerate(preprocessed_sentences)), reverse=True)
-
-    # Select the top sentences to form the summary
-    top_sentences = ranked_sentences[:summary_length]
-
-    # Join the top sentences to form the summary
-    summary = ' '.join(sentence for _, sentence in top_sentences)
-
-    return summary
-
 # simple function for finding the mean of a list of ints/floats
 def mean(x):
     total = sum(x) / len(x)
@@ -255,7 +220,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                         likely_concerning.append([y, zoo_wee_mama["scores"][0]])
                     # add the non concerning confidence score to avg_not_concerning for averaging
                     avg_not_concerning.append(zoo_wee_mama["scores"][1])
-                    # if score in pos 0 (concerning) passes the set threshold, add to likely concerning
+                    # if score in pos 1 (not concerning) passes the set threshold, add to likely not concerning
                     if zoo_wee_mama["scores"][1] > nc_temp:
                         likely_not_concerning.append([y, zoo_wee_mama["scores"][1]])
                     # print the current averages for concerning and not concerning
@@ -371,7 +336,15 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
     
+def analysis_generate(context):
+# analysis model change test
+    analysis_model = 'gpt2'
+    prompt = "generate: Why is this clause concerning? context: " + context
+    analysis_generate = pipeline('text-generation', model=analysis_model, tokenizer=analysis_model)
+    generation = analysis_generate(prompt, max_length=100)[0]['generated_text']
+    return generation
 
+    
 
 ### calling the functions and defining their needed values
 
@@ -389,7 +362,7 @@ summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 
 explained_text = []
 for x in likely_found:
-    analyze_text = analyze(x,analyze_prompt)
+    analyze_text = analysis_generate(x)
     explained_text.append(analyze_text)
 file_general.write(str(explained_text))
 file_general.close()
@@ -413,7 +386,7 @@ text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
 for x in likely_found:
-    analyze_text = analyze(x,analyze_prompt)
+    analyze_text = analysis_generate(x)
     explained_text.append(analyze_text)
 file_data.write(str(explained_text))
 file_data.close()
@@ -438,7 +411,7 @@ text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
 for x in likely_found:
-    analyze_text = analyze(x,analyze_prompt)
+    analyze_text = analysis_generate(x)
     explained_text.append(analyze_text)
 file_security.write(str(explained_text))
 file_security.close()
@@ -463,7 +436,7 @@ text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
 for x in likely_found:
-    analyze_text = analyze(x,analyze_prompt)
+    analyze_text = analysis_generate(x)
     explained_text.append(analyze_text)
 file_privacy.write(str(explained_text))
 file_privacy.close()
@@ -485,7 +458,7 @@ analyze_prompt = "Explain why this text found from a TOS/EULA/Privacy Policy was
 likely_found = fusion_model_general(5, classes_legal, file_legal,0.8,0.5)
 explained_text = []
 for x in likely_found:
-    analyze_text = analyze(x,analyze_prompt)
+    analyze_text = analysis_generate(x)
     explained_text.append(analyze_text)
 file_legal.write(str(explained_text))
 file_legal.close()
@@ -511,5 +484,5 @@ for x in summary_text_list:
     for y in x:
         char_count += 1
 print(char_count)
-summary_output.write(str("Token Count: ", char_count))
+summary_output.write(str("Token Count: ", str(char_count)))
 
