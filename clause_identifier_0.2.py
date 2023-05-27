@@ -1,4 +1,4 @@
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 import random
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
@@ -9,15 +9,7 @@ import numpy as np
 import networkx as nx
 nltk.download('punkt')
 nltk.download('stopwords')
-from transformers import pipeline
 
-model_name = 't5-base'
-generator = pipeline('text-generation', model=model_name, tokenizer=model_name)
-
-context = "Your input context goes here"
-prompt = "generate: Why is this clause concerning? context: " + context
-
-explanation = generator(prompt, max_length=100)[0]['generated_text']
 """
 
 HOW THIS CODE WORKS:
@@ -337,12 +329,16 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
     return shared_likely_text
     
 def analysis_generate(context):
-# analysis model change test
-    analysis_model = 'gpt2'
-    prompt = "generate: Why is this clause concerning? context: " + context
-    analysis_generate = pipeline('text-generation', model=analysis_model, tokenizer=analysis_model)
-    generation = analysis_generate(prompt, max_length=100)[0]['generated_text']
-    return generation
+    analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    instruction = f'Instruction: Please explain with detail why the following clause could be found as concerning:'
+
+    query = f"{instruction} {context}"
+    input_ids = analysis_tokenizer.encode(query, return_tensors="pt")
+    outputs = analysis_model.generate(input_ids, max_length=128, min_length=8, top_p=0.9, do_sample=True)
+    output = analysis_tokenizer.decode(outputs[0], skip_special_tokens=True)
+    print(output)
+    return output
 
     
 
@@ -370,7 +366,7 @@ try:
     summary_text = smart_summarize(text_for_summary)
     print(summary_text)
     summary_text_list.append(summary_text)
-    #summarize_concerns(text_for_summary)
+#summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -395,7 +391,7 @@ try:
     summary_text = smart_summarize(text_for_summary) 
     print(summary_text)
     summary_text_list.append(summary_text)
-    #summarize_concerns(text_for_summary)
+#summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -420,7 +416,7 @@ try:
     summary_text = smart_summarize(text_for_summary)
     print(summary_text)
     summary_text_list.append(summary_text)
-    #summarize_concerns(text_for_summary)
+#summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
@@ -469,8 +465,7 @@ try:
     summary_text = smart_summarize(text_for_summary)
     print(summary_text)
     summary_text_list.append(summary_text)
-
-    #summarize_concerns(text_for_summary)
+#summarize_concerns(text_for_summary)
 except:
     print("Summary fail")
 print("##############################")
