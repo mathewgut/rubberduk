@@ -329,8 +329,11 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
     return shared_likely_text
     
 def analysis_generate(context, label):
+    #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #instruction = f'Instruction: The following is an excerpt text from a TOS/EULA/Privacy Policy. It has been flagged by an LLM as potentially concerning for a user of the platform/service. Please explain which parts a user should be concerned about and why.:'
     instruction = f'Instruction: The following excerpt has been labelled as {label} and is from a privacy policy or EULA or TOS. Please explain why this excerpt (or parts of it) may be of concern to a user of the platform the excerpt is from. Excerpt: '
     query = f"{instruction} {context}"
