@@ -43,7 +43,7 @@ How do I use the concerning clause identifier?:
 If you wish to use just one model at a time you can just use clause_identifier. It holds a bunch of lists with information such as non concerning, and concerning texts and their scores.
     To use this, pass in the following values: 
     document: this is the text you wish to read, make sure it is readable and formatted not horribly
-    classifier: this is the model you wish to use for zero shot classification (ideally from transformers pipeline)
+    classifier: this is the model you wish to use for zero shot classification (ideally from transformers pipeline for better performance)
     candidate_labels: these are the labels you wish to use for classification. You can have as many labels as you want, but, it will only store values for labels in postion 0 and 1 (positive and negative/concerning and not concerning).
     speech: this one is pretty stupid, but essentially it is what you want to say once process finishes. I put quacks because rubberduk... get it? Ha... funny funny man.
     batch: this is the amount of lines you wish for it to read in at once. The amount of lines you give it will determine the quality of the classification (along with labels). The more lines, the more context, but less precise and vice versa.
@@ -52,7 +52,7 @@ If you wish to use just one model at a time you can just use clause_identifier. 
 
 If you want to use multi model fusion, use fusion_model_general, this will give (typically) more accurate results than just using one model. This holds even more information including clean text of all the concerning clauses,
 averaged scores, individual scores, the current lines in the batch list, the clean results of the scores per batch, and lots of other stuff.
-    To use this pass in the following values:
+    To use this, pass in the following values:
     size: This is batch size, the amount of lines you wish for it to read in at a time. The amount of lines you give it will determine the quality of the classification (along with labels). The more lines, the more context, but less precise and vice versa.
     labels: These are the labels/classes you wish to give the model to match with given text. The wording used is crucial to task accuracy, so make sure you use clear text that reflects your task (concerning clause, not concerning clause)
     output_file: This value should look something like this: "file_privacy = open("output_privacy.txt", "w")", in this instance, file_privacy is what we would pass in to fusion_model_general. You need to give it write or append access to your designated file, or it won't write anything (duh). 
@@ -67,10 +67,17 @@ yours truly,
 
 """
 
-## TODO: close file after writing for each output section (ensures that the text is written to the write file considering file variable name is the exact same for each function)
-## TODO: refactor the data, security, privacy, and general functions. the only realistic difference outside the file writing is the labels used. That can be set per call, no new function is needed.
-## TODO: make summarizer actually work
+## TODO: Enhance multi model fusion accuracy by adding more models to lessen the weight of each models classification confidence scores (averaging for more accuracy)
+## TODO: Gather more TOS's for evaluation (find ones that are actually concerning *cough* *cough* facebook, tiktok)
+## TODO: Restructure fusion function to add models likely concerning text to individual lists, than compare and contrast all models at once (will allow for increased scale)
+## TODO: Optimize code and rid of bloat and random functions (get rid of zoo_wee_mama :C )
 ## TODO: attatch to frontend (js) to allow to read in texts found on the web
+## TODO: Fix summarizer function so the almalgomated summary is not a bajilion words long
+## TODO: Use BaptisteDoyen/camembert-base-xnli in multi model fusion, accuracy tests well
+## TODO: Make fusion function only return clauses that meet an average confidence criteria (i.e. 70%, 80%, etc)
+## TODO: Add to cloud hosting (AWS, Google Cloud, Azure) for increased performance, and for utilization with a chrome extension
+## TODO: Overhaul URL Scraping function (have it actually work) and create a formatting function for scaped files to rid of special characters, spacing issues, and other junk
+## TODO: Add a language input to change the models for reading clauses in different languages (french, spanish, italian, portugese, etc)
 
 
 # these are the files used for testing
@@ -117,8 +124,6 @@ tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 # what the model says after finishing a classification in its entirety
 quacks = "Thanks for playing, quack"
 summary_text_list = []
-from transformers import pipeline
-
 
 def smart_summarize(text):
     # Initialize the BART summarization pipeline
@@ -331,11 +336,11 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
 def analysis_generate(context, label):
     #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
-    analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
-    analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    analysis_tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-large")
+    analysis_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-large")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #instruction = f'Instruction: The following is an excerpt text from a TOS/EULA/Privacy Policy. It has been flagged by an LLM as potentially concerning for a user of the platform/service. Please explain which parts a user should be concerned about and why.:'
-    instruction = f'Instruction: The following excerpt has been labelled as {label} and is from a privacy policy or EULA or TOS. Please explain why this excerpt (or parts of it) may be of concern to a user of the platform the excerpt is from. Excerpt: '
+    instruction = f'Instruction: The following excerpt has been labelled as {label} and is from a privacy policy or EULA or TOS. Please explain which parts of this excerpt apply to this label and why. Excerpt: '
     query = f"{instruction} {context}"
     input_ids = analysis_tokenizer.encode(query, return_tensors="pt")
     outputs = analysis_model.generate(input_ids, max_length=1024, min_length=100, top_p=0.9, do_sample=True)
