@@ -1,12 +1,17 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 import random
 import nltk
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
-from clause_expain import analyze
-import numpy as np
-import networkx as nx
+#from nltk.tokenize import sent_tokenize, word_tokenize
+#from nltk.corpus import stopwords
+#from nltk.stem import PorterStemmer
+#from clause_expain import analyze
+#import numpy as np
+#import networkx as nx
+import os
+from flask import Flask
+
+cloud_app = Flask(__name__)
+
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -80,6 +85,8 @@ yours truly,
 ## TODO: Add a language input to change the models for reading clauses in different languages (french, spanish, italian, portugese, etc)
 
 
+
+
 # these are the files used for testing
 twitter_tos = open("twitter_tos.txt", "r", encoding='utf-8')
 text2 = twitter_tos.readlines()
@@ -99,8 +106,6 @@ epic_tos = open("epic_tos.txt", "r", encoding='utf-8')
 text8 = epic_tos.readlines()
 steam_tos = open("steam_tos.txt", "r", encoding='utf-8')
 text9 = steam_tos.readlines()
-#tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
-#text10 = tiktok_tos.read()
 playstation_tos = open("playstation_tos.txt", "r", encoding='utf-8')
 text11 = playstation_tos.readlines()
 mississauga_tos = open("mississauga_tos.txt", "r", encoding='utf-8')
@@ -115,7 +120,7 @@ netflix_tos = open("netflix_tos.txt", "r", encoding='utf-8')
 text16 = netflix_tos.readlines()
 
 
-tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
+tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9,
                   text11, text12, text13, text14, text15, text16]
 # assigning a random position based on a range from 0 to the length of the list
 tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
@@ -124,7 +129,7 @@ tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 # what the model says after finishing a classification in its entirety
 quacks = "Thanks for playing, quack"
 summary_text_list = []
-
+@cloud_app.route("/summarize")
 def smart_summarize(text):
     # Initialize the BART summarization pipeline
     summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -164,6 +169,7 @@ def mean(x):
     total = sum(x) / len(x)
     return total
 # the engine?
+@cloud_app.route("/identifier")
 def clause_identifier(document, classifier, candidate_labels, speech, batch, c_temp, nc_temp):
     # currently not used value for extreme confidence scoring
     v_avg_concerning = []
@@ -175,7 +181,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     avg_ambiguous = []
     avg_legal_concern = []
     # a fail safe for the while loop if the end of a document is reached
-    fart = True
+    trigger = True
     # the results for both concerning and non concerning confidence values with the batch text used as a key
     results =	{}
     # the list of text used for identification in current loop
@@ -186,7 +192,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     likely_not_concerning = []
 
 
-    while fart == True:
+    while trigger == True:
             # for determining how many loops have passed
             counter = 0
             # for each line in provided text
@@ -225,7 +231,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                     print("avg not concerning: ", mean(avg_not_concerning))  
                     
                 #print(results)
-            fart = False
+            trigger = False
             break
     # print final outcome statements of classification on text
     print("########################")
@@ -241,7 +247,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     return likely_concerning
 
 
-
+@cloud_app.route("/fusion")
 # for fusion of two models
 def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp):
     # the path for the first model
@@ -332,7 +338,8 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
     except Exception as e:
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
-    
+
+@cloud_app.route("/analysis")
 def analysis_generate(context, label):
     #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
@@ -340,10 +347,10 @@ def analysis_generate(context, label):
     analysis_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-large")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #instruction = f'Instruction: The following is an excerpt text from a TOS/EULA/Privacy Policy. It has been flagged by an LLM as potentially concerning for a user of the platform/service. Please explain which parts a user should be concerned about and why.:'
-    instruction = f'Instruction: The following excerpt has been labelled as {label} and is from a privacy policy or EULA or TOS. Please explain which parts of this excerpt apply to this label and why. Excerpt: '
+    instruction = f'Instruction: The following excerpt has been labelled as {label}, please explain which parts of this excerpt apply to this label and why the user would want to be aware of it. Excerpt: '
     query = f"{instruction} {context}"
     input_ids = analysis_tokenizer.encode(query, return_tensors="pt")
-    outputs = analysis_model.generate(input_ids, max_length=1024, min_length=100, top_p=0.9, do_sample=True)
+    outputs = analysis_model.generate(input_ids, max_length=1024, min_length=20, top_p=0.9, do_sample=True)
     output = analysis_tokenizer.decode(outputs[0], skip_special_tokens=True)
     print(output)
     return output
@@ -494,4 +501,5 @@ for x in summary_text_list:
         char_count += 1
 print(char_count)
 #summary_output.write(str("Token Count: ", str(char_count)))
-
+if __name__ == "__clause_identifier_0.2__":
+    cloud_app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
