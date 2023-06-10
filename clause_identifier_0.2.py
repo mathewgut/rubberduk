@@ -68,7 +68,7 @@ You're ready to use the code! Please don't break anything, my insurance on this 
 
 yours truly,
 
-- fart master extreme
+- mr guy man person dude
 
 """
 
