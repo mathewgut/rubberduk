@@ -9,9 +9,7 @@ import nltk
 #import networkx as nx
 import os
 from flask import Flask
-
 cloud_app = Flask(__name__)
-
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -118,6 +116,8 @@ tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
 text15 = tiktok_tos.readlines()
 netflix_tos = open("netflix_tos.txt", "r", encoding='utf-8')
 text16 = netflix_tos.readlines()
+instagram_tos = open("instagram_tos.txt", "r", encoding='utf-8')
+text17 = instagram_tos.readlines()
 
 
 tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9,
@@ -190,6 +190,8 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     likely_concerning = []
     # texts and their confidence values that have passed the nc_temp threshold
     likely_not_concerning = []
+
+    document = text17
 
 
     while trigger == True:
