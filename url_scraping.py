@@ -23,6 +23,6 @@ def scrape_url(url, output_file):
     print(f"Scraping completed. Output file: {output_file}")
 
 # Example usage:
-url = "https://help.netflix.com/legal/privacy"
-output_file = 'netflix_tos.txt'
+url = "https://help.instagram.com/155833707900388"
+output_file = 'instagram_tos.txt'
 scrape_url(url, output_file)

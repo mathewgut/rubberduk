@@ -1,12 +1,15 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 import random
 import nltk
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
-from clause_expain import analyze
-import numpy as np
-import networkx as nx
+#from nltk.tokenize import sent_tokenize, word_tokenize
+#from nltk.corpus import stopwords
+#from nltk.stem import PorterStemmer
+#from clause_expain import analyze
+#import numpy as np
+#import networkx as nx
+import os
+from flask import Flask
+cloud_app = Flask(__name__)
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -43,7 +46,7 @@ How do I use the concerning clause identifier?:
 If you wish to use just one model at a time you can just use clause_identifier. It holds a bunch of lists with information such as non concerning, and concerning texts and their scores.
     To use this, pass in the following values: 
     document: this is the text you wish to read, make sure it is readable and formatted not horribly
-    classifier: this is the model you wish to use for zero shot classification (ideally from transformers pipeline)
+    classifier: this is the model you wish to use for zero shot classification (ideally from transformers pipeline for better performance)
     candidate_labels: these are the labels you wish to use for classification. You can have as many labels as you want, but, it will only store values for labels in postion 0 and 1 (positive and negative/concerning and not concerning).
     speech: this one is pretty stupid, but essentially it is what you want to say once process finishes. I put quacks because rubberduk... get it? Ha... funny funny man.
     batch: this is the amount of lines you wish for it to read in at once. The amount of lines you give it will determine the quality of the classification (along with labels). The more lines, the more context, but less precise and vice versa.
@@ -52,7 +55,7 @@ If you wish to use just one model at a time you can just use clause_identifier. 
 
 If you want to use multi model fusion, use fusion_model_general, this will give (typically) more accurate results than just using one model. This holds even more information including clean text of all the concerning clauses,
 averaged scores, individual scores, the current lines in the batch list, the clean results of the scores per batch, and lots of other stuff.
-    To use this pass in the following values:
+    To use this, pass in the following values:
     size: This is batch size, the amount of lines you wish for it to read in at a time. The amount of lines you give it will determine the quality of the classification (along with labels). The more lines, the more context, but less precise and vice versa.
     labels: These are the labels/classes you wish to give the model to match with given text. The wording used is crucial to task accuracy, so make sure you use clear text that reflects your task (concerning clause, not concerning clause)
     output_file: This value should look something like this: "file_privacy = open("output_privacy.txt", "w")", in this instance, file_privacy is what we would pass in to fusion_model_general. You need to give it write or append access to your designated file, or it won't write anything (duh). 
@@ -63,14 +66,23 @@ You're ready to use the code! Please don't break anything, my insurance on this 
 
 yours truly,
 
-- fart master extreme
+- mr guy man person dude
 
 """
 
-## TODO: close file after writing for each output section (ensures that the text is written to the write file considering file variable name is the exact same for each function)
-## TODO: refactor the data, security, privacy, and general functions. the only realistic difference outside the file writing is the labels used. That can be set per call, no new function is needed.
-## TODO: make summarizer actually work
+## TODO: Enhance multi model fusion accuracy by adding more models to lessen the weight of each models classification confidence scores (averaging for more accuracy)
+## TODO: Gather more TOS's for evaluation (find ones that are actually concerning *cough* *cough* facebook, tiktok)
+## TODO: Restructure fusion function to add models likely concerning text to individual lists, than compare and contrast all models at once (will allow for increased scale)
+## TODO: Optimize code and rid of bloat and random functions (get rid of zoo_wee_mama :C )
 ## TODO: attatch to frontend (js) to allow to read in texts found on the web
+## TODO: Fix summarizer function so the almalgomated summary is not a bajilion words long
+## TODO: Use BaptisteDoyen/camembert-base-xnli in multi model fusion, accuracy tests well
+## TODO: Make fusion function only return clauses that meet an average confidence criteria (i.e. 70%, 80%, etc)
+## TODO: Add to cloud hosting (AWS, Google Cloud, Azure) for increased performance, and for utilization with a chrome extension
+## TODO: Overhaul URL Scraping function (have it actually work) and create a formatting function for scaped files to rid of special characters, spacing issues, and other junk
+## TODO: Add a language input to change the models for reading clauses in different languages (french, spanish, italian, portugese, etc)
+
+
 
 
 # these are the files used for testing
@@ -92,8 +104,6 @@ epic_tos = open("epic_tos.txt", "r", encoding='utf-8')
 text8 = epic_tos.readlines()
 steam_tos = open("steam_tos.txt", "r", encoding='utf-8')
 text9 = steam_tos.readlines()
-#tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
-#text10 = tiktok_tos.read()
 playstation_tos = open("playstation_tos.txt", "r", encoding='utf-8')
 text11 = playstation_tos.readlines()
 mississauga_tos = open("mississauga_tos.txt", "r", encoding='utf-8')
@@ -106,9 +116,11 @@ tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
 text15 = tiktok_tos.readlines()
 netflix_tos = open("netflix_tos.txt", "r", encoding='utf-8')
 text16 = netflix_tos.readlines()
+instagram_tos = open("instagram_tos.txt", "r", encoding='utf-8')
+text17 = instagram_tos.readlines()
 
 
-tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9, #text10,
+tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9,
                   text11, text12, text13, text14, text15, text16]
 # assigning a random position based on a range from 0 to the length of the list
 tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
@@ -117,9 +129,7 @@ tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 # what the model says after finishing a classification in its entirety
 quacks = "Thanks for playing, quack"
 summary_text_list = []
-from transformers import pipeline
-
-
+@cloud_app.route("/summarize")
 def smart_summarize(text):
     # Initialize the BART summarization pipeline
     summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -159,6 +169,7 @@ def mean(x):
     total = sum(x) / len(x)
     return total
 # the engine?
+@cloud_app.route("/identifier")
 def clause_identifier(document, classifier, candidate_labels, speech, batch, c_temp, nc_temp):
     # currently not used value for extreme confidence scoring
     v_avg_concerning = []
@@ -170,7 +181,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     avg_ambiguous = []
     avg_legal_concern = []
     # a fail safe for the while loop if the end of a document is reached
-    fart = True
+    trigger = True
     # the results for both concerning and non concerning confidence values with the batch text used as a key
     results =	{}
     # the list of text used for identification in current loop
@@ -180,8 +191,10 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     # texts and their confidence values that have passed the nc_temp threshold
     likely_not_concerning = []
 
+    document = text17
 
-    while fart == True:
+
+    while trigger == True:
             # for determining how many loops have passed
             counter = 0
             # for each line in provided text
@@ -220,7 +233,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                     print("avg not concerning: ", mean(avg_not_concerning))  
                     
                 #print(results)
-            fart = False
+            trigger = False
             break
     # print final outcome statements of classification on text
     print("########################")
@@ -236,7 +249,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     return likely_concerning
 
 
-
+@cloud_app.route("/fusion")
 # for fusion of two models
 def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp):
     # the path for the first model
@@ -327,18 +340,19 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
     except Exception as e:
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
-    
+
+@cloud_app.route("/analysis")
 def analysis_generate(context, label):
     #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
-    analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
-    analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
+    analysis_tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-large")
+    analysis_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-large")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #instruction = f'Instruction: The following is an excerpt text from a TOS/EULA/Privacy Policy. It has been flagged by an LLM as potentially concerning for a user of the platform/service. Please explain which parts a user should be concerned about and why.:'
-    instruction = f'Instruction: The following excerpt has been labelled as {label} and is from a privacy policy or EULA or TOS. Please explain why this excerpt (or parts of it) may be of concern to a user of the platform the excerpt is from. Excerpt: '
+    instruction = f'Instruction: The following excerpt has been labelled as {label}, please explain which parts of this excerpt apply to this label and why the user would want to be aware of it. Excerpt: '
     query = f"{instruction} {context}"
     input_ids = analysis_tokenizer.encode(query, return_tensors="pt")
-    outputs = analysis_model.generate(input_ids, max_length=1024, min_length=100, top_p=0.9, do_sample=True)
+    outputs = analysis_model.generate(input_ids, max_length=1024, min_length=20, top_p=0.9, do_sample=True)
     output = analysis_tokenizer.decode(outputs[0], skip_special_tokens=True)
     print(output)
     return output
@@ -489,4 +503,5 @@ for x in summary_text_list:
         char_count += 1
 print(char_count)
 #summary_output.write(str("Token Count: ", str(char_count)))
-
+if __name__ == "__clause_identifier_0.2__":
+    cloud_app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
