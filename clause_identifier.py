@@ -203,7 +203,7 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
 
 
 # for fusion of two models
-def fusion_model_general(intake, size, labels, output_file, concern_temp, no_concern_temp):
+def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, no_concern_temp=0.6):
     # the path for the first model
 
     model = pipeline("zero-shot-classification",
