@@ -1,5 +1,4 @@
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
-import random
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import nltk
 #from nltk.tokenize import sent_tokenize, word_tokenize
 #from nltk.corpus import stopwords
@@ -8,8 +7,7 @@ import nltk
 #import numpy as np
 #import networkx as nx
 import os
-from flask import Flask
-cloud_app = Flask(__name__)
+
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -64,10 +62,6 @@ averaged scores, individual scores, the current lines in the batch list, the cle
 
 You're ready to use the code! Please don't break anything, my insurance on this place just lapsed so I'd be screwed.
 
-yours truly,
-
-- mr guy man person dude
-
 """
 
 ## TODO: Enhance multi model fusion accuracy by adding more models to lessen the weight of each models classification confidence scores (averaging for more accuracy)
@@ -81,55 +75,16 @@ yours truly,
 ## TODO: Add to cloud hosting (AWS, Google Cloud, Azure) for increased performance, and for utilization with a chrome extension
 ## TODO: Overhaul URL Scraping function (have it actually work) and create a formatting function for scaped files to rid of special characters, spacing issues, and other junk
 ## TODO: Add a language input to change the models for reading clauses in different languages (french, spanish, italian, portugese, etc)
+## TODO: Make a controller for data input, model use, analyze batch size, etc
 
 
 
-
-# these are the files used for testing
-twitter_tos = open("twitter_tos.txt", "r", encoding='utf-8')
-text2 = twitter_tos.readlines()
-facebook_tos = open("facebook_tos.txt", "r", encoding='utf-8')
-text1 = facebook_tos.readlines()
-reddit_tos = open("reddit_tos.txt", "r", encoding='utf-8')
-text3 = reddit_tos.readlines()
-youtube_tos = open("youtube_tos.txt", "r", encoding='utf-8')
-text4 = youtube_tos.readlines()
-linkedin_tos = open("linkedin_tos.txt", "r", encoding='utf-8')
-text5 = linkedin_tos.readlines()
-nytimes_tos = open("nytimes_tos.txt", "r", encoding='utf-8')
-text6 = nytimes_tos.readlines()
-openai_tos = open("openai_tos.txt", "r", encoding='utf-8')
-text7 = openai_tos.readlines()
-epic_tos = open("epic_tos.txt", "r", encoding='utf-8')
-text8 = epic_tos.readlines()
-steam_tos = open("steam_tos.txt", "r", encoding='utf-8')
-text9 = steam_tos.readlines()
-playstation_tos = open("playstation_tos.txt", "r", encoding='utf-8')
-text11 = playstation_tos.readlines()
-mississauga_tos = open("mississauga_tos.txt", "r", encoding='utf-8')
-text12 = mississauga_tos.readlines()
-ea_tos = open("ea_tos.txt", "r", encoding='utf-8')
-text13 = ea_tos.readlines()
-betterhelp_tos = open("betterhelp_tos.txt", "r", encoding='utf-8')
-text14 = betterhelp_tos.readlines()
-tiktok_tos = open("tiktok_tos.txt", "r", encoding='utf-8')
-text15 = tiktok_tos.readlines()
-netflix_tos = open("netflix_tos.txt", "r", encoding='utf-8')
-text16 = netflix_tos.readlines()
-instagram_tos = open("instagram_tos.txt", "r", encoding='utf-8')
-text17 = instagram_tos.readlines()
-
-
-tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9,
-                  text11, text12, text13, text14, text15, text16]
-# assigning a random position based on a range from 0 to the length of the list
-tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 
 
 # what the model says after finishing a classification in its entirety
 quacks = "Thanks for playing, quack"
-summary_text_list = []
-@cloud_app.route("/summarize")
+
+
 def smart_summarize(text):
     # Initialize the BART summarization pipeline
     summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -169,7 +124,7 @@ def mean(x):
     total = sum(x) / len(x)
     return total
 # the engine?
-@cloud_app.route("/identifier")
+
 def clause_identifier(document, classifier, candidate_labels, speech, batch, c_temp, nc_temp):
     # currently not used value for extreme confidence scoring
     v_avg_concerning = []
@@ -191,9 +146,8 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     # texts and their confidence values that have passed the nc_temp threshold
     likely_not_concerning = []
 
-    document = text17
 
-
+    # additional fail safe, redundant but just in case
     while trigger == True:
             # for determining how many loops have passed
             counter = 0
@@ -231,8 +185,6 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                     # print the current averages for concerning and not concerning
                     print("avg concerning: ", mean(avg_concerning))
                     print("avg not concerning: ", mean(avg_not_concerning))  
-                    
-                #print(results)
             trigger = False
             break
     # print final outcome statements of classification on text
@@ -249,10 +201,11 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     return likely_concerning
 
 
-@cloud_app.route("/fusion")
+
 # for fusion of two models
-def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp):
+def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, no_concern_temp=0.6):
     # the path for the first model
+
     model = pipeline("zero-shot-classification",
                       model="facebook/bart-large-mnli")
     fart = True
@@ -277,14 +230,14 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
         return 0
     
     # add the results of the first model
-    bart_likely.append(clause_identifier(tos_call_text, model, labels, quacks, size, concern_temp, no_concern_temp))
+    bart_likely.append(clause_identifier(intake, model, labels, quacks, size, concern_temp, no_concern_temp))
 
     print("#####SECOND MODEL#####")
     # change model to second model
     model = pipeline("zero-shot-classification",
             model="cross-encoder/nli-deberta-base")
     # add the results of the second model
-    valhalla_likely.append(clause_identifier(tos_call_text, model, labels, quacks, size, concern_temp, no_concern_temp))
+    valhalla_likely.append(clause_identifier(intake, model, labels, quacks, size, concern_temp, no_concern_temp))
     
     print("######b_likely#######")
     # print likely results of first model
@@ -341,7 +294,7 @@ def fusion_model_general(size,labels,output_file, concern_temp, no_concern_temp)
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
 
-@cloud_app.route("/analysis")
+
 def analysis_generate(context, label):
     #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
@@ -356,152 +309,3 @@ def analysis_generate(context, label):
     output = analysis_tokenizer.decode(outputs[0], skip_special_tokens=True)
     print(output)
     return output
-
-    
-
-### calling the functions and defining their needed values
-
-
-### General Model Fusion
-file_general = open("output_general.txt", "w")
-classes_general = ['Concerning Clause for User','Non-Concerning Clause for User']
-analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_general[0]
-
-likely_found = fusion_model_general(5,classes_general, file_general, 0.7,0.6)
-text_for_summary = ",".join(likely_found)
-
-summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
-    #print(summarizer(text_for_summary, max_length=2048, min_length=30, do_sample=False))
-
-explained_text = []
-for x in likely_found:
-    analyze_text = analysis_generate(x,classes_general[0])
-    explained_text.append(analyze_text)
-file_general.write(str(explained_text))
-file_general.close()
-"""
-try:
-    summary_text = smart_summarize(text_for_summary)
-    print(summary_text)
-    summary_text_list.append(summary_text)
-#summarize_concerns(text_for_summary)
-except:
-    print("Summary fail")
-"""
-print("##############################")
-
-
-### Data Model Fusion
-classes_data = ['Potential Data Use Concern','No Data Use Concern']
-file_data = open("output_data.txt", "w")
-analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_data[0]
-
-likely_found = fusion_model_general(5, classes_data, file_data,0.8,0.5)
-text_for_summary = ",".join(likely_found)
-summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
-explained_text = []
-for x in likely_found:
-    analyze_text = analysis_generate(x,classes_data[0])
-    explained_text.append(analyze_text)
-file_data.write(str(explained_text))
-file_data.close()
-"""
-try:
-    summary_text = smart_summarize(text_for_summary) 
-    print(summary_text)
-    summary_text_list.append(summary_text)
-#summarize_concerns(text_for_summary)
-except:
-    print("Summary fail")
-"""
-print("##############################")
-
-
-### Security Model Fusion
-classes_security = ['Potential Security Concern for User','No Security Concern for User']
-file_security = open("output_security.txt", "w")
-analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_security[0]
-
-likely_found = fusion_model_general(5,classes_security,file_security,0.75,0.5)
-text_for_summary = ",".join(likely_found)
-summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
-explained_text = []
-for x in likely_found:
-    analyze_text = analysis_generate(x,classes_security[0])
-    explained_text.append(analyze_text)
-file_security.write(str(explained_text))
-file_security.close()
-"""
-try:
-    summary_text = smart_summarize(text_for_summary)
-    print(summary_text)
-    summary_text_list.append(summary_text)
-#summarize_concerns(text_for_summary)
-except:
-    print("Summary fail")
-"""
-print("##############################")
-
-
-### Privacy Model Fusion
-classes_privacy = ['Potential Privacy Concern','No Privacy Concern ']
-file_privacy = open("output_privacy.txt", "w")
-analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
-
-likely_found = fusion_model_general(5, classes_privacy, file_privacy,0.8,0.5)
-text_for_summary = ",".join(likely_found)
-summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
-explained_text = []
-for x in likely_found:
-    analyze_text = analysis_generate(x,classes_privacy[0])
-    explained_text.append(analyze_text)
-file_privacy.write(str(explained_text))
-file_privacy.close()
-"""
-try:
-    summary_text = smart_summarize(text_for_summary)
-    print(summary_text)
-    summary_text_list.append(summary_text)
-    #summarize_concerns(text_for_summary)
-except:
-    print("Summary fail")
-"""
-print("##############################")
-
-### Legal Model Fusion
-classes_legal = ['Potential Legal Concern','No Legal Concern ']
-file_legal = open("output_legal.txt", "w")
-analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
-
-likely_found = fusion_model_general(5, classes_legal, file_legal,0.8,0.5)
-explained_text = []
-for x in likely_found:
-    analyze_text = analysis_generate(x,classes_legal[0])
-    explained_text.append(analyze_text)
-file_legal.write(str(explained_text))
-file_legal.close()
-
-text_for_summary = ",".join(likely_found)
-"""
-try:
-    summary_text = smart_summarize(text_for_summary)
-    print(summary_text)
-    summary_text_list.append(summary_text)
-#summarize_concerns(text_for_summary)
-except:
-    print("Summary fail")
-"""
-print("##############################")
-
-
-summary_output = open("output_summary.txt", "w")
-print(summary_text_list)
-char_count = 0
-for x in summary_text_list:
-    summary_output.write(str(x))
-    for y in x:
-        char_count += 1
-print(char_count)
-#summary_output.write(str("Token Count: ", str(char_count)))
-if __name__ == "__clause_identifier_0.2__":
-    cloud_app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
