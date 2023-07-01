@@ -35,6 +35,8 @@ netflix_tos = open("demo_docs/netflix_tos.txt", "r", encoding='utf-8')
 text16 = netflix_tos.readlines()
 instagram_tos = open("demo_docs/instagram_tos.txt", "r", encoding='utf-8')
 text17 = instagram_tos.readlines()
+twitch_tos = open("demo_docs/twitch_tos.txt", "r", encoding='utf-8')
+text18 = twitch_tos.readlines()
 
 
 tos_call_list = [text1, text2, text3, text4, text5, text6, text7, text8, text9,
@@ -49,7 +51,7 @@ file_general = open("output_general.txt", "w")
 classes_general = ['Concerning Clause for User','Non-Concerning Clause for User']
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_general[0]
 
-likely_found = fusion_model_general(text15, 5, classes_general, file_general, 0.7,0.6)
+likely_found = fusion_model_general(text18, 5, classes_general, file_general, 0.7,0.6)
 text_for_summary = ",".join(likely_found)
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -69,7 +71,7 @@ classes_data = ['Potential Data Use Concern','No Data Use Concern']
 file_data = open("output_data.txt", "w")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_data[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_data, file_data,0.8,0.5)
+likely_found = fusion_model_general(text18, 5, classes_data, file_data,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -87,7 +89,7 @@ classes_security = ['Potential Security Concern for User','No Security Concern f
 file_security = open("output_security.txt", "w")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_security[0]
 
-likely_found = fusion_model_general(tos_call_text, 5,classes_security,file_security,0.75,0.5)
+likely_found = fusion_model_general(text18, 5,classes_security,file_security,0.75,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -105,7 +107,7 @@ classes_privacy = ['Potential Privacy Concern','No Privacy Concern ']
 file_privacy = open("output_privacy.txt", "w")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_privacy, file_privacy,0.8,0.5)
+likely_found = fusion_model_general(text18, 5, classes_privacy, file_privacy,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -122,7 +124,7 @@ classes_legal = ['Potential Legal Concern','No Legal Concern ']
 file_legal = open("output_legal.txt", "w")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_legal, file_legal,0.8,0.5)
+likely_found = fusion_model_general(text18, 5, classes_legal, file_legal,0.8,0.5)
 explained_text = []
 for x in likely_found:
     analyze_text = analysis_generate(x,classes_legal[0])
@@ -134,6 +136,25 @@ text_for_summary = ",".join(likely_found)
 
 print("##############################")
 
+### Versitility Function (Currently Streamers)
+classes_streamer = ['Potential Concern for Streamers','No Concern for Streamers']
+file_streamer = open("output_streamers.txt", "w")
+analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
+
+likely_found = fusion_model_general(text18, 5, classes_streamer, file_streamer,0.8,0.5)
+text_for_summary = ",".join(likely_found)
+summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
+explained_text = []
+for x in likely_found:
+    analyze_text = analysis_generate(x,classes_privacy[0])
+    explained_text.append(analyze_text)
+file_privacy.write(str(explained_text))
+file_privacy.close()
+
+print("##############################")
+
+
 
 summary_output = open("output_summary.txt", "w")
 print(summary_text_list)
+

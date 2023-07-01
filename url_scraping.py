@@ -31,6 +31,6 @@ def scrape_url(url, output_file):
     file.close()
 
 # Usage:
-url = "https://mbasic.facebook.com/privacy/policy/printable/"
-output_file = 'demo_docs/instagram_tos.txt'
+url = "https://www.twitch.tv/p/en/legal/terms-of-service/"
+output_file = 'demo_docs/twitch_tos.txt'
 scrape_url(url, output_file)
