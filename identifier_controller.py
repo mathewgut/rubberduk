@@ -45,11 +45,11 @@ tos_call_text = tos_call_list[random.choice(range(0, len(tos_call_list)))]
 summary_text_list = []
 
 ### General Model Fusion
-file_general = open("output_general.txt", "w")
+file_general = open("output_general.txt", "w",encoding="UTF-8")
 classes_general = ['Concerning Clause for User','Non-Concerning Clause for User']
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_general[0]
 
-likely_found = fusion_model_general(text15, 5, classes_general, file_general, 0.7,0.6)
+likely_found = fusion_model_general(text17, 3, classes_general, file_general, 0.7,0.6)
 text_for_summary = ",".join(likely_found)
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -66,10 +66,10 @@ print("##############################")
 
 ### Data Model Fusion
 classes_data = ['Potential Data Use Concern','No Data Use Concern']
-file_data = open("output_data.txt", "w")
+file_data = open("output_data.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_data[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_data, file_data,0.8,0.5)
+likely_found = fusion_model_general(text17, 3, classes_data, file_data,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -84,10 +84,10 @@ print("##############################")
 
 ### Security Model Fusion
 classes_security = ['Potential Security Concern for User','No Security Concern for User']
-file_security = open("output_security.txt", "w")
+file_security = open("output_security.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_security[0]
 
-likely_found = fusion_model_general(tos_call_text, 5,classes_security,file_security,0.75,0.5)
+likely_found = fusion_model_general(text17, 3, classes_security,file_security,0.75,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -102,10 +102,10 @@ print("##############################")
 
 ### Privacy Model Fusion
 classes_privacy = ['Potential Privacy Concern','No Privacy Concern ']
-file_privacy = open("output_privacy.txt", "w")
+file_privacy = open("output_privacy.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_privacy, file_privacy,0.8,0.5)
+likely_found = fusion_model_general(text17, 3, classes_privacy, file_privacy,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -119,10 +119,10 @@ print("##############################")
 
 ### Legal Model Fusion
 classes_legal = ['Potential Legal Concern','No Legal Concern ']
-file_legal = open("output_legal.txt", "w")
+file_legal = open("output_legal.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
 
-likely_found = fusion_model_general(tos_call_text, 5, classes_legal, file_legal,0.8,0.5)
+likely_found = fusion_model_general(text17, 3, classes_legal, file_legal,0.8,0.5)
 explained_text = []
 for x in likely_found:
     analyze_text = analysis_generate(x,classes_legal[0])
@@ -135,5 +135,5 @@ text_for_summary = ",".join(likely_found)
 print("##############################")
 
 
-summary_output = open("output_summary.txt", "w")
+summary_output = open("output_summary.txt", "w",encoding="UTF-8")
 print(summary_text_list)

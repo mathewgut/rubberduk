@@ -290,11 +290,12 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
     try:
         for x in shared_likely:
             output_file.writelines(str(x) + "\n")
+        output_file.write("Analysis:")
     except Exception as e:
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
 
-
+# currently extremley experimental, outputs can be inconsistant as it is not finetuned
 def analysis_generate(context, label):
     #analysis_tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
     #analysis_model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-large-seq2seq")
