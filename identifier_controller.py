@@ -51,7 +51,7 @@ file_general = open("output_general.txt", "w",encoding="UTF-8")
 classes_general = ['Concerning Clause for User','Non-Concerning Clause for User']
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_general[0]
 
-likely_found = fusion_model_general(text18, 5, classes_general, file_general, 0.7,0.6)
+likely_found = fusion_model_general(text18, 6, classes_general, file_general, 0.7,0.6)
 text_for_summary = ",".join(likely_found)
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
@@ -71,7 +71,7 @@ classes_data = ['Potential Data Use Concern','No Data Use Concern']
 file_data = open("output_data.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_data[0]
 
-likely_found = fusion_model_general(text18, 5, classes_data, file_data,0.8,0.5)
+likely_found = fusion_model_general(text18, 6, classes_data, file_data,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -89,7 +89,7 @@ classes_security = ['Potential Security Concern for User','No Security Concern f
 file_security = open("output_security.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_security[0]
 
-likely_found = fusion_model_general(text18, 5,classes_security,file_security,0.75,0.5)
+likely_found = fusion_model_general(text18, 6, classes_security,file_security,0.75,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -107,7 +107,7 @@ classes_privacy = ['Potential Privacy Concern','No Privacy Concern ']
 file_privacy = open("output_privacy.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_privacy[0]
 
-likely_found = fusion_model_general(text18, 5, classes_privacy, file_privacy,0.8,0.5)
+likely_found = fusion_model_general(text18, 6, classes_privacy, file_privacy,0.8,0.5)
 text_for_summary = ",".join(likely_found)
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 explained_text = []
@@ -124,7 +124,7 @@ classes_legal = ['Potential Legal Concern','No Legal Concern ']
 file_legal = open("output_legal.txt", "w",encoding="UTF-8")
 analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
 
-likely_found = fusion_model_general(text18, 5, classes_legal, file_legal,0.8,0.5)
+likely_found = fusion_model_general(text18, 6, classes_legal, file_legal,0.8,0.5)
 explained_text = []
 for x in likely_found:
     analyze_text = analysis_generate(x,classes_legal[0])
@@ -135,6 +135,41 @@ file_legal.close()
 text_for_summary = ",".join(likely_found)
 
 print("##############################")
+
+### Legal Model Fusion
+classes_legal = ['Potential Legal Concern','No Legal Concern ']
+file_legal = open("output_legal.txt", "w",encoding="UTF-8")
+analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
+
+likely_found = fusion_model_general(text18, 6, classes_legal, file_legal,0.8,0.5)
+explained_text = []
+for x in likely_found:
+    analyze_text = analysis_generate(x,classes_legal[0])
+    explained_text.append(analyze_text)
+file_legal.write(str(explained_text))
+file_legal.close()
+
+text_for_summary = ",".join(likely_found)
+
+print("##############################")
+
+#Versatility test
+classes_streamer = ['Potential Streamer Concern','No Concern for Streamers']
+file_streamer = open("output_streamer.txt", "w",encoding="UTF-8")
+analyze_prompt = f"Instruction: Explain why this text found from a TOS/EULA/Privacy Policy was labelled from a natural lanugage model as " + classes_legal[0]
+
+likely_found = fusion_model_general(text18, 6, classes_streamer, file_streamer,0.8,0.5)
+explained_text = []
+for x in likely_found:
+    analyze_text = analysis_generate(x,classes_legal[0])
+    explained_text.append(analyze_text)
+file_legal.write(str(explained_text))
+file_legal.close()
+
+text_for_summary = ",".join(likely_found)
+
+print("##############################")
+
 
 
 summary_output = open("output_summary.txt", "w",encoding="UTF-8")

@@ -123,7 +123,7 @@ def smart_summarize(text):
 def mean(x):
     total = sum(x) / len(x)
     return total
-# the engine?
+
 
 def clause_identifier(document, classifier, candidate_labels, speech, batch, c_temp, nc_temp):
     # currently not used value for extreme confidence scoring
@@ -168,20 +168,21 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
                         # clear loop counter
                         counter = 0
                     print(y)
-                    # unnecessary, but funny
-                    zoo_wee_mama = classifier(y, candidate_labels, multi_label=False)
+                    
+
+                    rd = classifier(y, candidate_labels, multi_label=False)
                     # add current line as a key to the results dict and set the confidence scores as the value
-                    results.update({y: zoo_wee_mama['scores']})
+                    results.update({y: rd['scores']})
                     # add the concerning confidence score to avg_concerning for averaging
-                    avg_concerning.append(zoo_wee_mama["scores"][0])
+                    avg_concerning.append(rd["scores"][0])
                     # if score in pos 0 (concerning) passes the set threshold, add to likely concerning
-                    if zoo_wee_mama["scores"][0] > c_temp:
-                        likely_concerning.append([y, zoo_wee_mama["scores"][0]])
+                    if rd["scores"][0] > c_temp:
+                        likely_concerning.append([y, rd["scores"][0]])
                     # add the non concerning confidence score to avg_not_concerning for averaging
-                    avg_not_concerning.append(zoo_wee_mama["scores"][1])
+                    avg_not_concerning.append(rd["scores"][1])
                     # if score in pos 1 (not concerning) passes the set threshold, add to likely not concerning
-                    if zoo_wee_mama["scores"][1] > nc_temp:
-                        likely_not_concerning.append([y, zoo_wee_mama["scores"][1]])
+                    if rd["scores"][1] > nc_temp:
+                        likely_not_concerning.append([y, rd["scores"][1]])
                     # print the current averages for concerning and not concerning
                     print("avg concerning: ", mean(avg_concerning))
                     print("avg not concerning: ", mean(avg_not_concerning))  
@@ -207,12 +208,13 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
     # the path for the first model
 
     model = pipeline("zero-shot-classification",
-                      model="facebook/bart-large-mnli")
+                      model="sileod/deberta-v3-base-tasksource-nli")
     fart = True
     # model 1 likely concerning batches and their confidence scores 
     bart_likely = []
     # model 2 likely concerning batches and their confidence scores 
     valhalla_likely = []
+    lang_roberta_likely = []
     # shared concerning batches and their scores
     shared_likely = []
     # a list for all scores to be added for averaging
@@ -238,40 +240,47 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
             model="cross-encoder/nli-deberta-base")
     # add the results of the second model
     valhalla_likely.append(clause_identifier(intake, model, labels, quacks, size, concern_temp, no_concern_temp))
-    
+    print("#####THIRD MODEL#####")
+    #lang_roberta_likely.append(clause_identifier(intake, model, labels, quacks, size, concern_temp, no_concern_temp))
+    #model = pipeline("zero-shot-classification",
+             #model="sileod/deberta-v3-base-tasksource-nli")
     print("######b_likely#######")
     # print likely results of first model
     print(bart_likely)
     print("######v_likely#######")
     # print likely results of second model
     print(valhalla_likely)
+    print("######r_likely#######")
+    # print likely results of third model
+    print(lang_roberta_likely)
     
     
-    # since everything is in a list of a list of a list of a list, it has to be accessed this way. sorry :)
+    # since everything is in a list of a list of a list of a list, it has to be accessed this way. (code will be refactored once logic is sound)
     for x in bart_likely:
         for x2 in x:
             for y in valhalla_likely:
                 for y2 in y:
                     # if the current batch text of model one matches the current batch text of model 2
-                    if x2[0] == y2[0]:
-                        # add the batch text along with both confidence scores
-                        shared_likely.append([x2[0], x2[1], y2[1]])
-                        # add both confidence scores to shared_likely_math for averaging
-                        shared_likely_math.append(x2[1])
-                        shared_likely_math.append(y2[1])
-                        # create the average confidence score between the two models per batch
-                        avg_shared = sum(shared_likely_math) / len(shared_likely_math)
-                        # add the average confidence score along with the batch text to shared_likely_mean
-                        shared_likely_mean.append((x2[0], avg_shared))
-                        # add just the batch text to shared_likely_text
-                        shared_likely_text.append(x2[0])
-                        # print the number of shared likely concerning batches
-                        print("shared =", len(shared_likely))
-                        print(shared_likely_mean)
-                    # if the text doesn't match print no match and move on to next comparison
-                    else:
-                        print("no match")
-                        continue
+                            if x2[0] == y2[0]:
+                                # add the batch text along with both confidence scores
+                                shared_likely.append([x2[0], x2[1], y2[1]])
+                                # add both confidence scores to shared_likely_math for averaging
+                                shared_likely_math.append(x2[1])
+                                shared_likely_math.append(y2[1])
+                          
+                                # create the average confidence score between the two models per batch
+                                avg_shared = sum(shared_likely_math) / len(shared_likely_math)
+                                # add the average confidence score along with the batch text to shared_likely_mean
+                                shared_likely_mean.append((x2[0], avg_shared))
+                                # add just the batch text to shared_likely_text
+                                shared_likely_text.append(x2[0])
+                                # print the number of shared likely concerning batches
+                                print("shared =", len(shared_likely))
+                                print(shared_likely_mean)
+                            # if the text doesn't match print no match and move on to next comparison
+                            else:
+                                print("no match")
+                                continue
     # final outcome print statements
     print("shared =", len(shared_likely))
     print(shared_likely)
