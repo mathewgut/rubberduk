@@ -35,6 +35,9 @@ class CustomDataset(Dataset):
 
 
 audit_model.to(device)
+
+
+#NEEDS OPTIMIZATION
 def fine_tune_audit(train_data, num_epochs=4, batch_size=32, learning_rate=5e-5):
     dataset = CustomDataset(train_data)
     #passes in the data
@@ -84,7 +87,7 @@ audit_model = XLNetForSequenceClassification(config)
 audit_model.load_state_dict(torch.load("audit_model_xlnet\\pytorch_model.bin"))
 
 
-
+#can be optimized using a new data structure
 def audit_concerning_clauses(concerning_clauses):
     context = "data privacy, data selling, security, cross site tracking/monitoring, data rights"
     audit_model.to(device)

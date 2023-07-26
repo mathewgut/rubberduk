@@ -1,5 +1,5 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
-import nltk
+#import nltk
 #from nltk.tokenize import sent_tokenize, word_tokenize
 #from nltk.corpus import stopwords
 #from nltk.stem import PorterStemmer
@@ -8,8 +8,8 @@ import nltk
 #import networkx as nx
 import os
 
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 """
 
@@ -146,7 +146,8 @@ def clause_identifier(document, classifier, candidate_labels, speech, batch, c_t
     # texts and their confidence values that have passed the nc_temp threshold
     likely_not_concerning = []
 
-
+    #NEEDS OPTIMIZATION
+    
     # additional fail safe, redundant but just in case
     while trigger == True:
             # for determining how many loops have passed
@@ -255,6 +256,11 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
     print(lang_roberta_likely)
     
     
+
+    #NEEDS OPTIMIZATION
+
+    #Two lists of tuples: bart_likely, valhalla_likely in each tuple string text is at position 0, confidence score(float)at position 1
+
     # since everything is in a list of a list of a list of a list, it has to be accessed this way. (code will be refactored once logic is sound)
     for x in bart_likely:
         for x2 in x:
@@ -262,6 +268,8 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
                 for y2 in y:
                     # if the current batch text of model one matches the current batch text of model 2
                             if x2[0] == y2[0]:
+                              
+
                                 # add the batch text along with both confidence scores
                                 shared_likely.append([x2[0], x2[1], y2[1]])
                                 # add both confidence scores to shared_likely_math for averaging
