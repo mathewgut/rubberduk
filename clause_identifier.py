@@ -260,35 +260,34 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
     #NEEDS OPTIMIZATION
 
     #Two lists of tuples: bart_likely, valhalla_likely in each tuple string text is at position 0, confidence score(float)at position 1
-
+    #maybe scrap some lists that could be turned to variables
     # since everything is in a list of a list of a list of a list, it has to be accessed this way. (code will be refactored once logic is sound)
-    for x in bart_likely:
-        for x2 in x:
-            for y in valhalla_likely:
-                for y2 in y:
-                    # if the current batch text of model one matches the current batch text of model 2
-                            if x2[0] == y2[0]:
-                              
+    
+    commons=find_common_first_positions(bart_likely,valhalla_likely)
+    
+    for x in commons:
 
-                                # add the batch text along with both confidence scores
-                                shared_likely.append([x2[0], x2[1], y2[1]])
-                                # add both confidence scores to shared_likely_math for averaging
-                                shared_likely_math.append(x2[1])
-                                shared_likely_math.append(y2[1])
+        # if the current batch text of model one matches the current batch text of model 2
+                            
+        # add the batch text along with both confidence scores
+        shared_likely.append([valhalla_likely[x][0], valhalla_likely[x][1], bart_likely[x][1]])
+        # add both confidence scores to shared_likely_math for averaging
+        shared_likely_math.append(valhalla_likely[x][1])
+        shared_likely_math.append(bart_likely[x][1])
                           
-                                # create the average confidence score between the two models per batch
-                                avg_shared = sum(shared_likely_math) / len(shared_likely_math)
-                                # add the average confidence score along with the batch text to shared_likely_mean
-                                shared_likely_mean.append((x2[0], avg_shared))
-                                # add just the batch text to shared_likely_text
-                                shared_likely_text.append(x2[0])
-                                # print the number of shared likely concerning batches
-                                print("shared =", len(shared_likely))
-                                print(shared_likely_mean)
-                            # if the text doesn't match print no match and move on to next comparison
-                            else:
-                                print("no match")
-                                continue
+        # create the average confidence score between the two models per batch
+        avg_shared = sum(shared_likely_math) / len(shared_likely_math)
+        # add the average confidence score along with the batch text to shared_likely_mean
+        shared_likely_mean.append((valhalla_likely[x][0], avg_shared))
+        # add just the batch text to shared_likely_text
+        shared_likely_text.append(valhalla_likely[x][0])
+        # print the number of shared likely concerning batches
+        print("shared =", len(shared_likely))
+        print(shared_likely_mean)
+        # if the text doesn't match print no match and move on to next comparison
+        if len(commons==0):
+            print("no match")
+            continue
     # final outcome print statements
     print("shared =", len(shared_likely))
     print(shared_likely)
@@ -311,6 +310,24 @@ def fusion_model_general(intake, size, labels, output_file, concern_temp=0.75, n
     except Exception as e:
             print("Error occurred while writing to file:", str(e))
     return shared_likely_text
+
+
+def find_common_first_positions(list1, list2):
+    common_positions = set()
+
+    first_positions_dict = {}
+    for i, item in enumerate(list1):
+        position = item[0]
+        if str(position) not in first_positions_dict:
+            first_positions_dict[str(position)] = i
+
+    for i, item in enumerate(list2):
+        position = item[0]
+        if str(position) in first_positions_dict:
+            common_positions.add(i)
+
+    return common_positions
+
 
 # currently extremley experimental, outputs can be inconsistant as it is not finetuned
 def analysis_generate(context, label):
