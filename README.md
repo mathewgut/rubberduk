@@ -13,3 +13,15 @@ This is a passion project for me which I started with the OpenAI API in November
 Eventually, we plan to release this as a completely free browser extension to automatically scan documents for users (similar to a grammarly system). However, there is a lot of cost involved (computational resources for modeling, servers, etc) so there is a good chance the project may stall before then.
 <h2>Else</h2>
 If you want to keep up with the project, or have any ideas or concerns, feel free to post an issue or contact me here on GitHub or LinkedIn.
+<h3>Citations</h3>
+@article{sileo2023tasksource,
+  title={tasksource: Structured Dataset Preprocessing Annotations for Frictionless Extreme Multi-Task Learning and Evaluation},
+  author={Sileo, Damien},
+  url= {https://arxiv.org/abs/2301.05948},
+  journal={arXiv preprint arXiv:2301.05948},
+  year={2023}
+}
+
+cross-encoder/nli-deberta-base
+
+License: Apache 2-0
